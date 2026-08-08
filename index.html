@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Congrès Germano-Marocain 2026 — Karriere Bruecke International</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --blue-900:#0B2A5B;
+    --blue-700:#123A7A;
+    --blue-500:#1E56A8;
+    --blue-100:#EAF0FB;
+    --yellow:#FFC229;
+    --yellow-dark:#E8A800;
+    --ink:#16213A;
+    --gray:#6B7484;
+    --line:#E4E8F0;
+    --ma-red:#C1272D;
+    --de-black:#111111;
+    --de-red:#D00000;
+    --de-gold:#FFCE00;
+    --radius:18px;
+    --font-latin:'Inter', system-ui, sans-serif;
+    --font-arabic:'Noto Kufi Arabic','Inter', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-latin);
+    background:var(--white);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body[dir="rtl"]{font-family:var(--font-arabic);}
+  body[dir="rtl"] .eyebrow, body[dir="rtl"] .title-blue, body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3{letter-spacing:0;}
+
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+  ul{list-style:none;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  .eyebrow{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--blue-500);
+    background:var(--blue-100);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+
+  h1,h2,h3{
+    color:var(--blue-900);
+    text-transform:uppercase;
+    font-weight:800;
+    line-height:1.12;
+    letter-spacing:.01em;
+  }
+  h2{font-size:clamp(24px,6vw,42px); margin-bottom:14px;}
+  h3{font-size:18px; margin-bottom:8px;}
+  p{color:var(--gray); font-size:16px;}
+  .lede{font-size:18px; color:var(--ink); max-width:680px;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--yellow);
+    color:var(--blue-900);
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    padding:15px 28px;
+    border-radius:999px;
+    border:none;
+    box-shadow:0 10px 24px -8px rgba(255,194,41,.65);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 14px 28px -8px rgba(255,194,41,.8); background:var(--yellow-dark);}
+  .btn:active{transform:translateY(0);}
+  .btn-outline{
+    background:transparent;
+    border:2px solid var(--blue-900);
+    color:var(--blue-900);
+    box-shadow:none;
+  }
+  .btn-outline:hover{background:var(--blue-900); color:var(--white);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1180px; margin:0 auto;
+    gap:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-weight:800; color:var(--blue-900); text-transform:uppercase;
+    font-size:14.5px; letter-spacing:.03em;
+  }
+  .brand-mark-img{
+    height:32px; width:auto; flex-shrink:0; display:block;
+  }
+  footer .brand-mark-img{height:40px;}
+  .nav-links{display:flex; gap:26px; font-size:14px; font-weight:600; color:var(--blue-900);}
+  .nav-links a{opacity:.75; transition:opacity .15s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+
+  .lang-switch{display:flex; gap:4px; background:var(--blue-100); padding:4px; border-radius:999px;}
+  .lang-switch button{
+    background:transparent; border:none; padding:6px 12px; border-radius:999px;
+    font-size:12.5px; font-weight:700; color:var(--blue-700); letter-spacing:.02em;
+  }
+  .lang-switch button.active{background:var(--blue-900); color:var(--white);}
+
+  .nav-cta{display:none;}
+  @media(min-width:640px){.nav-cta{display:inline-flex; padding:11px 20px; font-size:12.5px;}}
+  @media(max-width:900px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; padding:0; overflow:hidden; min-height:92vh; display:flex; align-items:center;}
+  .hero-bg{
+    position:absolute; inset:0; z-index:0;
+    background-image:linear-gradient(160deg, rgba(8,24,55,.92) 10%, rgba(11,42,91,.82) 45%, rgba(11,42,91,.5) 100%), url('https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?auto=format&fit=crop&w=1800&q=80');
+    background-size:cover; background-position:center 30%;
+    animation:kenburns 22s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{from{transform:scale(1.06);} to{transform:scale(1.16) translateY(-1.5%);}}
+  .hero-content{position:relative; z-index:2; padding:130px 0 60px; width:100%;}
+  .hero-grid{display:grid; grid-template-columns:1fr; gap:40px; align-items:center; max-width:760px;}
+
+  .hero .eyebrow{
+    background:rgba(255,194,41,.16); color:var(--yellow); border:1px solid rgba(255,194,41,.35);
+    opacity:0; transform:translateY(18px); animation:riseIn .8s ease 0s forwards;
+  }
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(26px, 8vw, 58px);
+    line-height:1.15;
+    margin-bottom:18px;
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .15s forwards;
+  }
+  .hero h1 .hl{color:var(--yellow);}
+  .hero .lede{
+    color:rgba(255,255,255,.88); font-size:18px;
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .32s forwards;
+    margin-bottom:26px; max-width:620px;
+  }
+  .hero-badges{
+    display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .46s forwards;
+  }
+  .badge{
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.1); border:1.5px solid rgba(255,255,255,.2); backdrop-filter:blur(6px);
+    padding:9px 16px; border-radius:999px; font-size:13.5px; font-weight:700; color:var(--white);
+  }
+  .badge .dot{width:7px; height:7px; border-radius:50%; background:var(--yellow);}
+  .hero-ctas{
+    display:flex; gap:14px; flex-wrap:wrap; align-items:center;
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .6s forwards;
+  }
+  .hero-ctas .btn-outline{border-color:rgba(255,255,255,.5); color:var(--white);}
+  .hero-ctas .btn-outline:hover{background:var(--white); color:var(--blue-900);}
+  .hero-urgency{
+    margin-top:16px; font-size:13.5px; color:rgba(255,255,255,.75);
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .72s forwards;
+    display:flex; align-items:center; gap:8px;
+  }
+  .hero-urgency .pulse-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--yellow); flex-shrink:0;
+    box-shadow:0 0 0 0 rgba(255,194,41,.7); animation:pulseDot 1.8s infinite;
+  }
+  @keyframes pulseDot{
+    0%{box-shadow:0 0 0 0 rgba(255,194,41,.6);}
+    70%{box-shadow:0 0 0 10px rgba(255,194,41,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,194,41,0);}
+  }
+  @keyframes riseIn{to{opacity:1; transform:translateY(0);}}
+
+  .countdown{
+    display:flex; gap:10px; margin-top:34px;
+    opacity:0; transform:translateY(18px);
+    animation:riseIn .8s ease .85s forwards;
+  }
+  .cd-box{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px);
+    border-radius:14px; padding:12px 16px; text-align:center; min-width:68px;
+  }
+  .cd-box .cd-num{font-size:26px; font-weight:900; color:var(--white); line-height:1; font-variant-numeric:tabular-nums;}
+  .cd-box .cd-label{font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.6); margin-top:4px;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2;
+    width:26px; height:42px; border:2px solid rgba(255,255,255,.4); border-radius:20px;
+  }
+  .scroll-cue::before{
+    content:""; position:absolute; top:8px; left:50%; width:4px; height:8px; background:var(--yellow);
+    border-radius:2px; transform:translateX(-50%); animation:scrollCue 1.6s ease infinite;
+  }
+  @keyframes scrollCue{0%{opacity:1; top:8px;} 70%{opacity:0; top:20px;} 100%{opacity:0; top:8px;}}
+  @media(max-width:640px){.countdown{flex-wrap:wrap;} .cd-box{min-width:60px; padding:10px 12px;}}
+
+  /* sticky mobile CTA */
+  .sticky-cta{
+    position:fixed; left:0; right:0; bottom:0; z-index:200;
+    background:var(--white); border-top:1px solid var(--line);
+    padding:12px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    box-shadow:0 -8px 24px -12px rgba(11,42,91,.3);
+    transform:translateY(120%); transition:transform .3s ease;
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta span{font-size:12.5px; font-weight:700; color:var(--blue-900);}
+  .sticky-cta .btn{padding:11px 18px; font-size:12.5px; white-space:nowrap;}
+  @media(min-width:900px){.sticky-cta{display:none;}}
+
+  /* image panels used across sections */
+  .img-panel{border-radius:24px; overflow:hidden; position:relative;}
+  .img-panel img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease;}
+  .img-panel:hover img{transform:scale(1.05);}
+  .img-float-card{
+    position:absolute; bottom:-24px; inset-inline-start:-20px; background:var(--white);
+    border-radius:16px; padding:16px 20px; box-shadow:0 20px 45px -18px rgba(11,42,91,.35);
+    display:flex; align-items:center; gap:12px; max-width:240px;
+  }
+  .img-float-card .ico{
+    width:38px; height:38px; border-radius:10px; background:var(--blue-100); flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .img-float-card p{font-size:12.5px; font-weight:700; color:var(--blue-900); margin:0; line-height:1.35;}
+
+  /* marquee */
+  .marquee{
+    background:var(--blue-900); overflow:hidden; padding:14px 0;
+    border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .marquee-track{
+    display:flex; white-space:nowrap; width:max-content;
+    animation:scrollLeft 26s linear infinite;
+  }
+  body[dir="rtl"] .marquee-track{animation:scrollRight 26s linear infinite;}
+  @keyframes scrollLeft{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  @keyframes scrollRight{from{transform:translateX(-50%);} to{transform:translateX(0);}}
+  .marquee-item{
+    color:var(--yellow); font-weight:800; font-size:14px; letter-spacing:.14em; text-transform:uppercase;
+    padding:0 22px; display:flex; align-items:center; gap:22px;
+  }
+  .marquee-item::after{content:"•"; color:rgba(255,255,255,.3); margin-inline-start:22px;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .stagger > *{transition-delay:calc(var(--i, 0) * 90ms);}
+
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-body{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;}
+  @media(max-width:820px){.about-body{grid-template-columns:1fr;}}
+  @media(min-width:821px){.about-body-img{grid-template-columns:1fr 1.1fr; align-items:center;}}
+  .about-body p{margin-bottom:16px; font-size:16.5px; color:var(--ink); opacity:.85;}
+  .quote-card{
+    background:var(--blue-100); border-radius:var(--radius); padding:28px;
+    border-inline-start:5px solid var(--yellow);
+  }
+  .quote-card p{color:var(--blue-900); font-weight:700; font-size:17px; opacity:1;}
+
+  /* ---------- OBJECTIVES ---------- */
+  .obj-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media(max-width:900px){.obj-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.obj-grid{grid-template-columns:1fr;}}
+  .obj-card{
+    background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius);
+    padding:26px 22px; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .obj-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(11,42,91,.25); border-color:var(--blue-500);}
+  .obj-num{
+    width:36px; height:36px; border-radius:10px; background:var(--blue-900); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; margin-bottom:14px;
+  }
+  .obj-card p{font-size:14.5px;}
+
+  /* ---------- AUDIENCES ---------- */
+  .aud-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;}
+  @media(max-width:900px){.aud-grid{grid-template-columns:1fr;}}
+  .aud-card{
+    border-radius:var(--radius); padding:28px 24px; color:var(--white); position:relative; overflow:hidden;
+    min-height:280px; display:flex; flex-direction:column;
+  }
+  .aud-card.de{background:linear-gradient(160deg, var(--blue-900), var(--blue-700));}
+  .aud-card.ma{background:linear-gradient(160deg, #7a1f24, var(--ma-red));}
+  .aud-card.cand{background:linear-gradient(160deg, #b8860b, var(--yellow-dark));}
+  .aud-card h3{color:var(--white); margin-bottom:14px;}
+  .aud-card ul{display:flex; flex-direction:column; gap:9px; flex:1;}
+  .aud-card li{font-size:13.5px; opacity:.92; padding-inline-start:16px; position:relative; line-height:1.45;}
+  .aud-card li::before{content:"—"; position:absolute; inset-inline-start:0; opacity:.7;}
+
+  /* ---------- PROGRAM ---------- */
+  .timeline{position:relative; padding-inline-start:0;}
+  .day-row{
+    display:grid; grid-template-columns:90px 1fr; gap:22px; padding-bottom:36px; position:relative;
+  }
+  .day-row:last-child{padding-bottom:0;}
+  .day-marker{position:relative; display:flex; flex-direction:column; align-items:center;}
+  .day-num{
+    width:56px; height:56px; border-radius:50%; background:var(--blue-900); color:var(--white);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; letter-spacing:.02em;
+    flex-shrink:0; z-index:2;
+  }
+  .day-line{width:2px; flex:1; background:var(--line); margin-top:6px;}
+  .day-row:last-child .day-line{display:none;}
+  .day-card{
+    background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius); padding:26px;
+  }
+  .day-card .date{font-size:12.5px; font-weight:700; color:var(--blue-500); text-transform:uppercase; letter-spacing:.08em; margin-bottom:6px;}
+  .day-card h3{margin-bottom:10px;}
+  .day-card p{font-size:15px;}
+
+  /* ---------- PARTNERS ---------- */
+  .partner-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  @media(max-width:900px){.partner-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:600px){.partner-grid{grid-template-columns:repeat(2,1fr);}}
+  .partner-tile{
+    border:1.5px solid var(--line); border-radius:14px; padding:22px 14px; text-align:center;
+    font-weight:800; color:var(--blue-900); font-size:13.5px; letter-spacing:.01em;
+    display:flex; align-items:center; justify-content:center; min-height:88px;
+    transition:border-color .2s, background .2s;
+  }
+  .partner-tile:hover{border-color:var(--yellow); background:var(--blue-100);}
+  .partners-note{margin-top:22px; font-size:13.5px;}
+
+  /* ---------- PRACTICAL ---------- */
+  .practical-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1.5px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  @media(max-width:760px){.practical-grid{grid-template-columns:1fr;}}
+  .p-row{display:contents;}
+  .p-label, .p-value{padding:16px 22px; border-bottom:1px solid var(--line); font-size:14.5px;}
+  .p-label{background:var(--blue-100); font-weight:700; color:var(--blue-900);}
+  .p-value{color:var(--ink);}
+  .p-row:last-child .p-label, .p-row:last-child .p-value{border-bottom:none;}
+  @media(max-width:760px){.p-value{border-bottom:1px solid var(--line);} .p-row:last-child .p-value{border-bottom:none;}}
+  @media(max-width:760px){ #practical .wrap > div.reveal{grid-template-columns:1fr !important;} }
+
+  /* ---------- PRICING ---------- */
+  .plan-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch;}
+  @media(max-width:920px){.plan-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;}}
+  .plan-card{
+    border-radius:24px; padding:32px 28px; display:flex; flex-direction:column;
+    position:relative; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .plan-card:hover{transform:translateY(-6px);}
+  .plan-card.light{background:var(--white); border:2px solid var(--line);}
+  .plan-card.dark{background:linear-gradient(165deg, var(--blue-900), var(--blue-700)); color:var(--white);}
+  .plan-card.dark .plan-price, .plan-card.dark .plan-name{color:var(--white);}
+  .plan-card.dark .plan-feat{color:rgba(255,255,255,.85);}
+  .plan-card.dark .plan-deadline{color:rgba(255,255,255,.6);}
+  .plan-card.selected{outline:3px solid var(--yellow); outline-offset:3px;}
+  .plan-badge{
+    position:absolute; top:-13px; inset-inline-start:28px;
+    background:var(--yellow); color:var(--blue-900); font-size:11.5px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.08em; padding:5px 14px; border-radius:999px;
+  }
+  .plan-name{
+    font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:.1em; color:var(--blue-500); margin-bottom:18px;
+  }
+  .plan-price{
+    display:flex; align-items:baseline; gap:4px; color:var(--blue-900); margin-bottom:6px;
+  }
+  .plan-price .num{font-size:52px; font-weight:900; line-height:1;}
+  .plan-price .cur{font-size:20px; font-weight:700; opacity:.7;}
+  .plan-deadline{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--gray); margin-bottom:22px; min-height:32px;}
+  .plan-feats{display:flex; flex-direction:column; gap:12px; margin-bottom:24px; flex:1;}
+  .plan-feat{display:flex; align-items:flex-start; gap:10px; font-size:14.5px; color:var(--ink);}
+  .plan-feat .tick{
+    width:18px; height:18px; border-radius:50%; background:var(--blue-500); flex-shrink:0; margin-top:2px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .plan-card.dark .plan-feat .tick{background:var(--yellow);}
+  .plan-feat .tick svg{width:10px; height:10px;}
+  .plan-note{
+    font-size:12.5px; line-height:1.5; padding:14px 16px; border-radius:12px; margin-bottom:18px;
+    background:rgba(255,255,255,.1); color:rgba(255,255,255,.85);
+  }
+  .plan-card.light .plan-note{background:var(--blue-100); color:var(--blue-900);}
+  .plan-cta{width:100%; justify-content:center; border:none;}
+  .plan-cta:disabled{
+    background:var(--line); color:var(--gray); box-shadow:none; cursor:not-allowed; opacity:1;
+  }
+  .plan-cta:disabled:hover{transform:none; background:var(--line);}
+
+  /* ---------- SIGNUP ---------- */
+  .signup{
+    background:linear-gradient(rgba(234,240,251,.94), rgba(234,240,251,.97)), url('https://images.unsplash.com/photo-1758270704286-83476deb3bd1?auto=format&fit=crop&w=1600&q=60');
+    background-size:cover; background-position:center;
+  }
+  .signup-inner{
+    background:var(--white); border-radius:28px; padding:48px; box-shadow:0 30px 70px -30px rgba(11,42,91,.3);
+    display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;
+  }
+  @media(max-width:820px){.signup-inner{grid-template-columns:1fr; padding:30px;}}
+  .signup-info .step{display:flex; gap:14px; margin-bottom:20px;}
+  .step-num{
+    width:30px; height:30px; border-radius:50%; background:var(--yellow); color:var(--blue-900);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; flex-shrink:0;
+  }
+  .step p{font-size:14.5px; margin:0;}
+  .step strong{display:block; color:var(--blue-900); font-size:14.5px; margin-bottom:2px; text-transform:none;}
+
+  .plan-summary{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:var(--blue-100); border-radius:14px; padding:14px 18px; margin-bottom:18px;
+  }
+  .plan-summary-text{font-size:14px; color:var(--blue-900);}
+  .plan-summary-text strong{display:block; font-size:15.5px; margin-bottom:1px;}
+  .plan-summary-link{font-size:12.5px; font-weight:700; color:var(--blue-500); text-decoration:underline; background:none; border:none; white-space:nowrap;}
+  .plan-chips{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+  .plan-chip{
+    border:1.5px solid var(--line); background:var(--white); border-radius:999px; padding:9px 16px;
+    font-size:13px; font-weight:700; color:var(--blue-900); transition:all .15s;
+  }
+  .plan-chip.active{background:var(--blue-900); border-color:var(--blue-900); color:var(--white);}
+  .plan-chip:disabled{opacity:.45; cursor:not-allowed;}
+  .field-error{font-size:13px; color:#C1272D; font-weight:600; display:none;}
+  .field-error.show{display:block;}
+
+  form{display:flex; flex-direction:column; gap:16px;}
+  label{font-size:13px; font-weight:700; color:var(--blue-900); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; display:block;}
+  input[type=text], input[type=email], input[type=tel]{
+    width:100%; border:1.5px solid var(--line); border-radius:12px; padding:13px 16px; font-size:15px;
+    font-family:inherit; color:var(--ink); transition:border-color .15s;
+  }
+  input:focus{outline:none; border-color:var(--blue-500);}
+  .field{display:flex; flex-direction:column;}
+  .consent{display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--gray);}
+  .consent input{margin-top:3px; accent-color:var(--blue-900);}
+  .submit-btn{width:100%; justify-content:center; margin-top:6px; border:none;}
+  .submit-btn:disabled{opacity:.6; cursor:not-allowed; transform:none;}
+  .form-msg{font-size:14px; font-weight:600; padding:12px 16px; border-radius:10px; display:none;}
+  .form-msg.show{display:block;}
+  .form-msg.success{background:#E7F6EC; color:#1B7A3D;}
+  .form-msg.error{background:#FCEAEA; color:#C1272D;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--blue-900); color:rgba(255,255,255,.75); padding:56px 0 30px;}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:36px; margin-bottom:40px;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr; gap:28px;}}
+  footer h3{color:var(--white); font-size:14px; margin-bottom:16px;}
+  footer .brand{color:var(--white); margin-bottom:14px;}
+  footer p{color:rgba(255,255,255,.65); font-size:14px;}
+  footer ul{display:flex; flex-direction:column; gap:10px;}
+  footer a{color:rgba(255,255,255,.75); font-size:14px; transition:color .15s;}
+  footer a:hover{color:var(--yellow);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12); padding-top:22px; font-size:12.5px; color:rgba(255,255,255,.5); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- MOBILE TYPE SCALE ---------- */
+  @media (max-width:640px){
+    .hero-content{padding:104px 0 50px;}
+    .hero .lede{font-size:16px; margin-bottom:20px;}
+    .lede{font-size:15.5px;}
+    .eyebrow{font-size:11.5px; padding:5px 12px;}
+    section{padding:60px 0;}
+    .section-head{margin-bottom:32px;}
+    h3{font-size:16.5px;}
+    p{font-size:14.5px;}
+    .badge{font-size:12px; padding:7px 13px;}
+    .hero-urgency{font-size:12.5px;}
+    .cd-box{min-width:56px; padding:9px 10px;}
+    .cd-box .cd-num{font-size:21px;}
+    .plan-price .num{font-size:40px;}
+    .plan-price .cur{font-size:16px;}
+    .marquee-item{font-size:12px; padding:0 14px;}
+    .marquee-item::after{margin-inline-start:14px;}
+    .quote-card p{font-size:15px;}
+    .img-float-card{padding:12px 16px; max-width:200px;}
+    .img-float-card p{font-size:11px;}
+    .about-img-wrap{margin-bottom:52px;}
+    .about-img-wrap .img-panel{aspect-ratio:16/11 !important; border-radius:18px;}
+    .about-img-wrap .img-float-card{
+      inset-inline-start:16px; bottom:-20px; max-width:calc(100% - 32px);
+      box-shadow:0 14px 30px -14px rgba(11,42,91,.35);
+    }
+  }
+  @media (max-width:420px){
+    .brand{font-size:11.5px; gap:8px;}
+    .hero h1{line-height:1.2;}
+    .btn{padding:13px 22px; font-size:13.5px;}
+    .plan-price .num{font-size:34px;}
+    .nav{padding:12px 16px; gap:8px;}
+    .lang-switch button{padding:5px 9px; font-size:11px;}
+    .brand-mark-img{height:26px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+
+  :focus-visible{outline:3px solid var(--blue-500); outline-offset:2px;}
+</style>
+</head>
+<body dir="ltr">
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img class="brand-mark-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAADABAMAAAAQKAAvAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAAMFBMVEX//////v7+/v/+/v7+/v39/v38/f2Cy94Aq9sAqtwAqtsAqtoqd448PT87PT81NjgtqyzhAAAPg0lEQVR42u2cf2wb53nHv++drAFORN5Rtpe5+nGk+gNgRIkS6wYz4ER14xbYFsf5ox7iRZZspzSWFtjQeXGKrkOaYdisYWuWrQJCtIns2jTyA63VIQFsKVFQLMniWeJJKoTYqcijlBqJbPFeUnGASbp79wdpSSTvjnfU0X/5/cOWyPvxue/zvM/zvM/diTzDUDaI/pMOmAyhcfhZAmdDzf+78jKi7GZOLdmd/LCnfJdMw6NmCBwJfqEHVQ0tQdVr/31Up6niz+swbqCCZnoc5j8/TGerIRBzXwVGvzZQ31eGwEllBEnzA+lbTxAaqAZB9Y6DfLWBfPrS0YliYZ0dR6iLPyirVdlBFAJ+X3L+4a8c/VlYF4pUcDI4sXmXGmCocnCCZ27ii13i80/kaLUqMC4upasmAGOkVWqY3/tXZ1G1CppwtCFAsZlB5jP4xs03mqtDIMS3+kdZbG7oGbJID4KjSlUqSOnfDHMq2RQC5wfzzn/p2SeqUkFDcJ8cINjsINlm6bu3qnLHuuz5B7vgwuAmU9/MtFSDIO08wbJuIGiC+nHg3SoMEZhU3khIrqjgk1iTyhJOVeC03UcXXSEAGOU/FoljQ7DfXm+bg0uDKM1fPy05NQR7iGvmmVsIOi8/dSuXcaSCxGPbnFsEYKIqfOu06EwFhT8znIN7Q0e6lzj0heCJSRcJwHuWGpz5Att2fpijbqow19z+aMiJCvzOE3LCTRVIK7L9khMEEu+BBFcHN79VcGKI4C6tO1vdhChUouU1anjlXQcIbfF/nFf9lRcLVBSIJy2us5KUGCkkhqkwLakcup7dQ+0i6MKR0LRkJQJTKQCQTEac7c741k6md/CjBceX5GIdiOrty9hG2KLdN9lquYXPt/5zQlq/XO/8jVP5n76rCSXu5Zu+R7NviLPDc4rl6mF2w/pk7+Ta5erzTe9GAQCr8KdNyhA7rovgvslO66DAMwpgeQhAfd2eKdFDWAoBNdf+ynUPhYrAPZgTSiODd+VduyqI539Nc9ZTMh/ptkQBaP+CB6ckaF3pZEQbje9JAUAyhEVWzMBJrOXZkD0EtvNEivfaYV1ZUgDu0OvoSTJQX2R17IXDqrl8zL4h4v+FKa/tOKBfD722ui0MaKMLZ/uyisWByV9M2UEgyoFdjO+wVzRmFAm4Kew8Fb0JqLH6/jG65kQG7jyNsGxHBe43T076bSrgkwCQWf5YDACi2oTXu2aHlL88YXuXbKnwkK9DcVoiywcFQC1uXZQvQHi7viBsm9Z9ThODQRekHEFnZMpGptTJmT0drVWnQ0kX/IW5GCr/1r9drqwCqQvum/dyVSMoaLttRaVMSi4TJpVVYOL5PaXB3dHYEvOYehITiJ2SZeeJaclZwcZv/GUuePzesCmC10bV5FuK94SmjAwkmF0buRbhpML8ywX+LP5FFEQUDMVMV0Ag+u7vaLxRdtAUs5xB/zzWlSzkTb/33N+GYSoiAUAqqdD2ZqvMLOK7weipezq2Kx/O25rPfL9HJpY5QqgwIzQ81gnFSMD5UFo03mfxD/dh4OEIAMTqv793vNGy4mQeSwQiCis7p1oMg0X7tC6a7be4jyzGAOC4+I2JtnUzlBmEUC/8KUsVhOyvh3MwEIHM3dgezpqp25h4ePwkoyK2hccrNSmZdWhitOmEiSFDv9w3YZq6WOu4LwIAWiJArBHIY6uWCByJD08aOv7c/UNtVjFdaJnwUuP87EgFIt3zpOHUY17hl/1WsUlQsgEvFZEQ6AYRfOXOoLRmVatJKU7G9xtmSCY3nblgupsMjUqEUahqcVg18B1JmKQWKpCG3XuNDck3vtXvtIJYq3BLA1mzhQrst58HeMPApjW9QN9xjrBUfpVpoNUCQe8RO4xyJBPnL/X9Dg6asHJhYVV2PYxZ54i65W1TOcO80f6ZzlfTXzLwBevCTTxv3FsiczfSE364MUjWa5msd56QjQ0kXWv6umudNyuExvN7jL7TRWUlPm1x/ww9ZccMmxmC5WRmjkB2GoclfpG71KtXWUYajLA5Ahffb+gJOm0fzAJApxu+gIUOc3cMdjPD7ECWLvarbnmCDovaUZwxbHkzr7d9ZvFtALDdBxXWc4RBcDRDIJC6QsbNjqkxSamy+Vde4nChOmqCwLB126SRz2lqaMG1VjigsTOKqSHe3+M10o3M6/HZas9n3kcyEiF8YsqAgKRU4dVe49hsUSEWO9/GRW060WMSoEn3lT3EILvrvmYWD20qEhb3HbvfaFk0UWGCzKWMcmTL/MXDmzB9qT5tCjU1RCdRfYqR0ZoGM1UDlBtQb4onTBDIEicadbfI1KW+bKXZbydC3C7QmXloYq1C1uCYWuiWrVPZnBFk7lKvjZV16So0o7gXFdC8RG32mtYRprdqnG6y6inq/MFsBaOKUMX8/2DeX4ScIrCO+/s1ySheiNJ66hL4xsairz8UAIDehwwVVSZASPkVLyBMXu6bcIoA2XtAN7hBpfsbNrT36B+MGk5Gnm8DGGWqChUiY8nQVQ2OEVqXtq4VEZ23yzpdgZiJYGSt7P3obQgb7bLLAwDzO14XACJEfAD0BEDYmf2OERgNfOFAaK0ypxKFrhAxAmij63EnTb4tlkQ6AMDCBQD1/UkRIEIEoBf7ko4ReDHZegDJgqd1UdlDGyPQrlBGY4iul7dJUAFgVESrLK5NuutRAP8bA4D6/pQAYXB//kjkh14H6Z8ov79FkwC4yTc0WQxAG4O6cAHkO1QAgOWlCpOWk0QAKy8DeKyuUAQ7e6hI77h/qLDjRDiijTIaA9kehTo+3W/vAEkA4A4KgJL0VoOAROeFR/IX2n2FqjHURcFoCg4zh54ZCZBOjVaDwPk+fioHALowsjCEgwIbJw3bbn7mcRgX1YCQW7tZ5gyBCWTHe/n5+W97o2wCAMvlOI/z4EyhWlVNlhp25eXTjrSOT7iTKpwgMHiSXN1uCQDIbMqtbGXfEDqfRGPkisrl3TFrkbYjRb8VgndbfgdNVkvqeQe+MCsGtNFPzz5UqUzlwzEjoFcL3x4rkFSD4PNfScV2HLW475gfly9HASIA+DYA4D95GYB2XMjf3Y+tkYw7QaBCWosIIwtno9AM4x+/HplCf9wvgvhLa/dw/T8DLAVE8RoYRQw4JttG0LM00yitjg188/BbuQd1A+VxObaWI2hDBCpLlleMGQqIRAAiQBLR19jzhxN2EQhrTUujn56NLk4KZXdC+DAuxxB9YEOZlKGGRatAAbUQSH0CIvryjH1DUL5zZGDHkTGPgQDLMUQf2H5EOLV+XoFWXEZkMgD5p79slm0gMObLpCOrbw9EMxOtahnA5Vj98e1HAmA2eg6lZOyTaE+DZEMFJatGrlw9HR0vXZtzfuHVy9FvHfRJLLlxjWC/zNcfOFSXsIHQuBi5cvX6k+NQoRYr8CqN7jgSQCZZdVycezps4/kFRiOjn8Z7y9NBMBbdcSTAkpsJzfpXeiFb5wii0HR45FT9o9myCKzF/+7kP/gzm0wUc8f4CiroranIyEBULW22RmJfW3q/myUhbrbf1dVzT8DaEGpkZCA6DqHYC0KxqKz4kgA23Xv75Kkl2coQLNU4MhAdKzVC8Bcnnw7DpZZTlLcyBFPargxEFwW9xAj1J5/D1n7iCoPuHwqZIuicyv3ualSVhZJEfDzanUK03x0R8Hmv+YxIq3z71frx4kjDB2PfeyacFLxfll1CyDWYt8HDuaZX3tOQLCaI/+g/PAoomf9rt8q26LQJgqLKoYtvdhZ3wvlg/ORzyawARtHvoK1l7QyysS+QVsE/MtgrU6GY4P3uJBgFGPvyvEsqbDExBPPmRn7SK6OUoCt5+5M53SUEcsgEYfrea0dKPC4Yf78rtZZwmf3OWoUYLRgaIs1Cr1yvK87vofjJrhSycH8YqqCJb8e1VBFBJH7yxymAuU9wwPAWWOONf+8rTUwnf5xCTcYOI4R007X+4jqAX/7eczUiYOWGoMTTffHNTPFtoeD5v0miRgj+Mnf0zyorg4+kiovl+AceilqNMhUy2fZrfaX5+WRH7QjKkzULvPVm580iMn7o/5K1I9jClVarc/e+8KeZ4k+1XtlRiUY3ZQihpeOVvvJn2l6SVNwhX2CJ6Yl4eftsOlY7AJBiBCK0XztcvnrXnpjCHVIhIyyNvWfUP9BeEu4QQjbZntljZPWZ2J1CwNJF7h3Dzfrm7gwC6WwfXDW8XG156I6EpiThrvcnjPsTM6//PaW1V6Gxtf2ni7rJiYLpbI0I2EZDzL/Vb3alWvA0uwO+oLXnzGPgTEaqOUKWLiXomPmGL9aKYGUNQdBDHzW0mrqcdui5mquQzOrnFIsN62tmiTUEL3epz2qtKtcoVZHUuiHaBy1fH9Yer02q2vA0+PzFXutpx9cqVd1G0NtvvWO95XSNUtUCt7aGG660bY1S1YUCAvNd2l/hIvVaparbCE2DlV5bZTP/Wotp6aEFhKVEX+Wtg7WwhDdeQJA+qtyy0IK1sMRK3hDpzOo5ufLWM4s1sEThgfSGpbE+O5vH3K9aOFp4xFa4wWwcXTv0gvsqxCQOAPxN52ytwq67n6o8NG+IyURfOmxj+xqkKm8833ckN3RbD0E0/8mUx/UJAQ6A3v5Tm37meqriJvJtcMIO2ERwP1W9BtQB3qnfe2w+0Kq5naqar8+CA1jolu3uwfLzLmfqCwAHKOy0YneXmZ+7Oi25gV6AA3KJXvs7HXLVEi2f55M1WbC/j8vr2+UhGeCA5lsOQr+rRQP3g8MAOOje07IT8LSL82EwC4ADSTzq4ML0Q6fdE+Fy/zgADtyC18FurD4jiW45Y4yJeXekqgNfgBxz2to0FeFqXM6Xr+3nFCc7ao9PudRpaBnIv3TDAQ7/GFfdS+7MCe6DuFxASDzkbNcpd4oG7r7dh/PVCoeFFmf7an2urG9bfhBd+8NZTttY+vLLLmTswAeDt5+d5ho+c+rgMy9uHsH34e7Dt5ezHBt2iMC5sL71fXIqqtxePHGq40vafKoKfHIqPr7hwVPnb6JtMlWRwIen4o9smOW0imAX3EyqCuj/82K8d8NJ6+D87RctdLrat3aIH7Oxgfrejbm5bryKA800SKVBnZr8vPYbbaDEDzYbWxiKpoqqg7qqLib2Qul75BvyBlf8XcHxlWYfTS78amGoPppY5TaNoD3+owMwlUEzFnb5GVX/GeqjelJpKjZOpBoG/rLx5xEAZX/Lls8vVzUZ/LGNT/5uDgHle42XnrL0Gz5sdP7qEVxdTOAuwl2Euwh3Ee4i3EW4i3AX4S5C5fH/XKDMXMmvtUwAAAAASUVORK5CYII=" alt="Karriere Bruecke">
+      <span data-i18n="brand">Congrès Germano-Marocain</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#partners" data-i18n="nav_partners">Partners</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="#practical" data-i18n="nav_practical">Practical info</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="de">DE</button>
+        <button data-lang="ar">عربية</button>
+      </div>
+      <a href="#signup" class="btn nav-cta" data-i18n="nav_cta">Sign up</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item" data-i18n="marquee_1">Your training</span>
+    <span class="marquee-item" data-i18n="marquee_2">Your recognition</span>
+    <span class="marquee-item" data-i18n="marquee_3">Your integration</span>
+    <span class="marquee-item" data-i18n="marquee_4">Your future</span>
+    <span class="marquee-item" data-i18n="marquee_1">Your training</span>
+    <span class="marquee-item" data-i18n="marquee_2">Your recognition</span>
+    <span class="marquee-item" data-i18n="marquee_3">Your integration</span>
+    <span class="marquee-item" data-i18n="marquee_4">Your future</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Applications open now</span>
+      <h1 data-i18n="hero_title">Your skills got you this far. <span class="hl">This is how you go further.</span></h1>
+      <p class="lede" data-i18n="hero_sub">Stop sending CVs into a void. Meet the German employers, training partners and recognition experts who can actually move your career forward — face to face, in Casablanca, for three days only.</p>
+      <div class="hero-badges">
+        <span class="badge"><span class="dot"></span><span data-i18n="hero_badge_dates">01 Oct 2026</span></span>
+        <span class="badge"><span class="dot"></span><span data-i18n="hero_badge_location">Casablanca · New Hotel</span></span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn" data-i18n="hero_cta">Claim your seat now</a>
+        <a href="#about" class="btn btn-outline" data-i18n="hero_cta2">See what's inside</a>
+      </div>
+      <div class="hero-urgency"><span class="pulse-dot"></span><span data-i18n="hero_urgency">Applications are reviewed on a rolling basis — the sooner you apply, the sooner you're in the room.</span></div>
+
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><div class="cd-num" id="cdDays">--</div><div class="cd-label" data-i18n="cd_days">Days</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdHours">--</div><div class="cd-label" data-i18n="cd_hours">Hours</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdMins">--</div><div class="cd-label" data-i18n="cd_mins">Minutes</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdSecs">--</div><div class="cd-label" data-i18n="cd_secs">Seconds</div></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="scroll-cue"></div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="about_eyebrow">Why this exists</span>
+      <h2 data-i18n="about_title">This isn't another job fair</h2>
+    </div>
+    <div class="about-body about-body-img">
+      <div class="reveal about-img-wrap" style="position:relative;">
+        <div class="img-panel" style="aspect-ratio:4/5;">
+          <img src="https://images.unsplash.com/photo-1752159400890-d906038f1b35?auto=format&fit=crop&w=1000&q=80" alt="" loading="lazy">
+        </div>
+        <div class="img-float-card">
+          <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E56A8" stroke-width="2.4" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <p data-i18n="about_float">No hidden fees. No fake guarantees. Just a clear, transparent process.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p data-i18n="about_p1">You didn't spend years building your skills to keep sending CVs into a void. The German&ndash;Moroccan Congress 2026 puts you in the same room as the people who can actually move things forward — German employers, recognition experts and training institutions, all in Casablanca, for three days only.</p>
+        <p data-i18n="about_p2">This isn't a vague networking event. It's a structured, serious process: real conversations, real requirements, real next steps — organized by Karriere Bruecke International, with nothing promised that can't be delivered.</p>
+        <div class="quote-card" style="margin-top:22px;">
+          <p data-i18n="about_quote">"You bring the skills. We bring the room where they finally get noticed."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--blue-100)80">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="objectives_eyebrow">What you'll gain</span>
+      <h2 data-i18n="objectives_title">What you walk away with</h2>
+    </div>
+    <div class="obj-grid stagger">
+      <div class="obj-card reveal" style="--i:0"><div class="obj-num">01</div><h3 data-i18n="obj_1_t">Know exactly where you stand</h3><p data-i18n="obj_1_d">Get precise answers on the training, recognition and language level you need — no more guessing from forum posts.</p></div>
+      <div class="obj-card reveal" style="--i:1"><div class="obj-num">02</div><h3 data-i18n="obj_2_t">Talk to decision-makers, not gatekeepers</h3><p data-i18n="obj_2_d">Sit across from the German organizations who are actually hiring and training right now — not a recruiter three steps removed.</p></div>
+      <div class="obj-card reveal" style="--i:2"><div class="obj-num">03</div><h3 data-i18n="obj_3_t">See the real training path</h3><p data-i18n="obj_3_d">Moroccan institutions show you real programs, equipment and what daily training actually looks like — not a brochure.</p></div>
+      <div class="obj-card reveal" style="--i:3"><div class="obj-num">04</div><h3 data-i18n="obj_4_t">Stop being a name in a pile of CVs</h3><p data-i18n="obj_4_d">German employers leave with a clear picture of your qualifications and potential — because you told them yourself.</p></div>
+      <div class="obj-card reveal" style="--i:4"><div class="obj-num">05</div><h3 data-i18n="obj_5_t">Be protected from empty promises</h3><p data-i18n="obj_5_d">Every organization here operates under transparent, fair-recruitment principles. No hidden fees, no fake guarantees.</p></div>
+      <div class="obj-card reveal" style="--i:5"><div class="obj-num">06</div><h3 data-i18n="obj_6_t">Leave with a next step, not just a card</h3><p data-i18n="obj_6_d">A documented follow-up plan so your momentum doesn't stop the moment the congress ends.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="audiences">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="audiences_eyebrow">Check yourself</span>
+      <h2 data-i18n="audiences_title">Is this your moment?</h2>
+    </div>
+
+    <div class="img-panel reveal" style="height:260px; margin-bottom:36px; position:relative;">
+      <img src="https://images.unsplash.com/photo-1758270704286-83476deb3bd1?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy">
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(11,42,91,.85), rgba(11,42,91,.15));"></div>
+      <p style="position:absolute; inset-inline-start:32px; bottom:26px; color:#fff; font-weight:800; font-size:clamp(18px,3vw,26px); max-width:480px; text-transform:uppercase; margin:0;" data-i18n="audiences_banner">If you're reading this, there's a good chance one of these is you.</p>
+    </div>
+
+    <div class="aud-grid stagger">
+      <div class="aud-card de reveal" style="--i:0">
+        <h3 data-i18n="aud_de_title">You're hiring in Germany</h3>
+        <ul>
+          <li data-i18n="aud_de_1">You lead HR, recruitment or a training program</li>
+          <li data-i18n="aud_de_2">You need qualified people, not just applications</li>
+          <li data-i18n="aud_de_3">You manage integration and onboarding</li>
+          <li data-i18n="aud_de_4">You work in recognition or qualification bodies</li>
+          <li data-i18n="aud_de_5">You represent health insurance or social protection</li>
+        </ul>
+      </div>
+      <div class="aud-card ma reveal" style="--i:1">
+        <h3 data-i18n="aud_ma_title">You train the next generation</h3>
+        <ul>
+          <li data-i18n="aud_ma_1">You run a school, institute or training center</li>
+          <li data-i18n="aud_ma_2">You represent a university or higher education body</li>
+          <li data-i18n="aud_ma_3">You teach language or preparation programs</li>
+          <li data-i18n="aud_ma_4">You lead a professional association or federation</li>
+          <li data-i18n="aud_ma_5">You work in employment or career guidance</li>
+        </ul>
+      </div>
+      <div class="aud-card cand reveal" style="--i:2">
+        <h3 data-i18n="aud_cand_title">You're ready to make the move</h3>
+        <ul>
+          <li data-i18n="aud_cand_1">You're qualified or recently graduated and want more</li>
+          <li data-i18n="aud_cand_2">You're considering an Ausbildung in Germany</li>
+          <li data-i18n="aud_cand_3">You're already in a recognition process and need clarity</li>
+          <li data-i18n="aud_cand_4">You want a real interview, not another maybe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="partners_eyebrow">Speakers &amp; partners</span>
+      <h2 data-i18n="partners_title">The people you'll actually talk to</h2>
+    </div>
+    <div class="partner-grid stagger">
+      <div class="partner-tile reveal" style="--i:0">Karriere Bruecke Intl.</div>
+      <div class="partner-tile reveal" style="--i:1">Asghar Consultants</div>
+      <div class="partner-tile reveal" style="--i:2">KKH</div>
+      <div class="partner-tile reveal" style="--i:3">multicareer Akademie</div>
+      <div class="partner-tile reveal" style="--i:4">Hackbarth's Consulting</div>
+      <div class="partner-tile reveal" style="--i:5">Adecco</div>
+      <div class="partner-tile reveal" style="--i:6">Sirius Global</div>
+      <div class="partner-tile reveal" style="--i:7">EEMSI Meknès</div>
+    </div>
+    <p class="partners-note reveal" data-i18n="partners_note">Speaker line-up and partner status subject to final confirmation by the organizer.</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="pricing_eyebrow">Tickets</span>
+      <h2 data-i18n="pricing_title">Lock in your seat</h2>
+      <p class="lede" data-i18n="pricing_sub">Every plan gets you full access to the congress day. The only question is how much extra access you want on top — and how soon you act.</p>
+    </div>
+
+    <div class="reveal" style="display:flex; align-items:center; gap:10px; background:var(--blue-100); border-radius:999px; padding:10px 20px; margin-bottom:28px; width:fit-content; max-width:100%;">
+      <span class="pulse-dot" style="background:var(--blue-500); box-shadow:0 0 0 0 rgba(30,86,168,.5);"></span>
+      <span style="font-size:13px; font-weight:700; color:var(--blue-900);" data-i18n="pricing_urgency">Seats are limited and applications are reviewed on a rolling basis.</span>
+    </div>
+
+    <div class="plan-grid stagger">
+      <!-- EARLY BIRD -->
+      <div class="plan-card light reveal" data-plan-card="earlybird" style="--i:0">
+        <span class="plan-badge" data-i18n="plan_earlybird_badge">Best price</span>
+        <span class="plan-name" data-i18n="plan_earlybird_name">Early Bird</span>
+        <div class="plan-price"><span class="num">149</span><span class="cur">€</span></div>
+        <div class="plan-deadline" id="earlybirdDeadline" data-i18n="plan_earlybird_deadline">Book before 31 July 2026</div>
+        <div class="plan-feats">
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_congress">Access to the full congress day</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_networking">Networking sessions</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_docs">Conference documents</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_catering">Coffee breaks &amp; lunch</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_certificate">Certificate of participation</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_speeddating_std">Employer speed-dating possible as a second priority — after Premium seats, not guaranteed</span></div>
+        </div>
+        <button type="button" class="btn plan-cta" id="earlybirdCta" data-plan="earlybird" data-i18n="plan_cta">Book now</button>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="plan-card dark reveal" data-plan-card="standard" style="--i:1">
+        <span class="plan-badge" data-i18n="plan_standard_badge">Recommended</span>
+        <span class="plan-name" data-i18n="plan_standard_name">Standard</span>
+        <div class="plan-price"><span class="num">199</span><span class="cur">€</span></div>
+        <div class="plan-deadline" id="standardDeadline" data-i18n="plan_standard_deadline">From 1 August 2026</div>
+        <div class="plan-feats">
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_congress">Access to the full congress day</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_networking">Networking sessions</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_docs">Conference documents</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_catering">Coffee breaks &amp; lunch</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_certificate">Certificate of participation</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_speeddating_std">Employer speed-dating possible as a second priority — after Premium seats, not guaranteed</span></div>
+        </div>
+        <button type="button" class="btn plan-cta" id="standardCta" data-plan="standard" data-i18n="plan_cta">Book now</button>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card dark reveal" data-plan-card="premium" style="--i:2">
+        <span class="plan-badge" data-i18n="plan_premium_badge">Professionals &amp; students</span>
+        <span class="plan-name" data-i18n="plan_premium_name">Premium</span>
+        <div class="plan-price"><span class="num">249</span><span class="cur">€</span></div>
+        <div class="plan-deadline" data-i18n="plan_premium_deadline">For healthcare &amp; physio professionals / students</div>
+        <div class="plan-feats">
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_congress">Access to the full congress day</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_networking">Networking sessions</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_docs">Conference documents</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_catering">Coffee breaks &amp; lunch</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_certificate">Certificate of participation</span></div>
+          <div class="plan-feat"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span data-i18n="feat_speeddating_premium">Guaranteed, priority access to employer speed-dating</span></div>
+        </div>
+        <div class="plan-note" data-i18n="plan_premium_note">Exclusively for healthcare staff, physiotherapists, and students/professionals seeking to work in Germany. Not for employers or official partners.</div>
+        <button type="button" class="btn plan-cta" id="premiumCta" data-plan="premium" data-i18n="plan_cta">Book now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="practical" style="background:var(--blue-100)80">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="practical_eyebrow">Good to know</span>
+      <h2 data-i18n="practical_title">Practical information</h2>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:.9fr 1.4fr; gap:24px; align-items:stretch;">
+      <div class="img-panel" style="min-height:220px;">
+        <img src="https://images.unsplash.com/photo-1625500018176-059486c98fd8?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy">
+      </div>
+      <div class="practical-grid" style="margin:0;">
+        <div class="p-row"><div class="p-label" data-i18n="pr_dates_l">Date</div><div class="p-value" data-i18n="pr_dates_v">01 October 2026</div></div>
+        <div class="p-row"><div class="p-label" data-i18n="pr_city_l">City</div><div class="p-value" data-i18n="pr_city_v">Casablanca, Morocco</div></div>
+        <div class="p-row"><div class="p-label" data-i18n="pr_venue_l">Venue</div><div class="p-value" data-i18n="pr_venue_v">New Hotel, Casablanca</div></div>
+        <div class="p-row"><div class="p-label" data-i18n="pr_lang_l">Languages</div><div class="p-value" data-i18n="pr_lang_v">French and German, with interpretation depending on session</div></div>
+        <div class="p-row"><div class="p-label" data-i18n="pr_dossier_l">Application file</div><div class="p-value" data-i18n="pr_dossier_v">CV, diplomas, certificates and language proof, as requested by the organizer</div></div>
+        <div class="p-row"><div class="p-label" data-i18n="pr_price_l">Participation fee</div><div class="p-value" data-i18n="pr_price_v">Shared with you individually once your application is approved</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="signup-inner reveal">
+      <div class="signup-info">
+        <span class="eyebrow" data-i18n="signup_eyebrow">Registration</span>
+        <h2 data-i18n="signup_title">This is your move</h2>
+        <p class="lede" style="margin-bottom:10px;" data-i18n="signup_sub">Somewhere in that room could be the employer who's been looking for exactly your profile. The only way to find out is to be there.</p>
+        <p style="margin-bottom:26px; font-size:14px; color:var(--gray); font-weight:600;" data-i18n="signup_reassure">Applying is free and takes a minute. You only pay once your application is approved.</p>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <p><strong data-i18n="step1_t">Submit your details</strong><span data-i18n="step1_d">Full name, email and phone number — takes less than a minute.</span></p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p><strong data-i18n="step2_t">We review your application</strong><span data-i18n="step2_d">Our team checks your profile against the congress focus areas.</span></p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p><strong data-i18n="step3_t">We contact you</strong><span data-i18n="step3_d">Once approved, we'll reach out to confirm your spot and arrange payment.</span></p>
+        </div>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <div class="plan-summary" id="planSummary">
+          <div class="plan-summary-text">
+            <strong id="planSummaryName" data-i18n="signup_plan_none">No plan selected yet — choose one below</strong>
+            <span id="planSummaryDetail"></span>
+          </div>
+          <button type="button" class="plan-summary-link" id="planScrollLink" data-i18n="signup_plan_view">View plans</button>
+        </div>
+        <div class="plan-chips" id="planChips">
+          <button type="button" class="plan-chip" data-plan="earlybird" id="chipEarlybird">Early Bird · 149€</button>
+          <button type="button" class="plan-chip" data-plan="standard" id="chipStandard">Standard · 199€</button>
+          <button type="button" class="plan-chip" data-plan="premium" id="chipPremium">Premium · 249€</button>
+        </div>
+        <span class="field-error" id="planError" data-i18n="form_plan_required_error">Please select a ticket plan before submitting.</span>
+
+        <div class="field">
+          <label for="fullName" data-i18n="form_name">Full name</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="form_email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone" data-i18n="form_phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+212 6 12 34 56 78">
+        </div>
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span data-i18n="form_consent">I agree that my details will be stored and used by Karriere Bruecke International to process my application for this congress.</span>
+        </label>
+        <button type="submit" class="btn submit-btn" id="submitBtn" data-i18n="form_submit">Submit application</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand"><img class="brand-mark-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAADABAMAAAAQKAAvAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAAMFBMVEX//////v7+/v/+/v7+/v39/v38/f2Cy94Aq9sAqtwAqtsAqtoqd448PT87PT81NjgtqyzhAAAPg0lEQVR42u2cf2wb53nHv++drAFORN5Rtpe5+nGk+gNgRIkS6wYz4ER14xbYFsf5ox7iRZZspzSWFtjQeXGKrkOaYdisYWuWrQJCtIns2jTyA63VIQFsKVFQLMniWeJJKoTYqcijlBqJbPFeUnGASbp79wdpSSTvjnfU0X/5/cOWyPvxue/zvM/zvM/diTzDUDaI/pMOmAyhcfhZAmdDzf+78jKi7GZOLdmd/LCnfJdMw6NmCBwJfqEHVQ0tQdVr/31Up6niz+swbqCCZnoc5j8/TGerIRBzXwVGvzZQ31eGwEllBEnzA+lbTxAaqAZB9Y6DfLWBfPrS0YliYZ0dR6iLPyirVdlBFAJ+X3L+4a8c/VlYF4pUcDI4sXmXGmCocnCCZ27ii13i80/kaLUqMC4upasmAGOkVWqY3/tXZ1G1CppwtCFAsZlB5jP4xs03mqtDIMS3+kdZbG7oGbJID4KjSlUqSOnfDHMq2RQC5wfzzn/p2SeqUkFDcJ8cINjsINlm6bu3qnLHuuz5B7vgwuAmU9/MtFSDIO08wbJuIGiC+nHg3SoMEZhU3khIrqjgk1iTyhJOVeC03UcXXSEAGOU/FoljQ7DfXm+bg0uDKM1fPy05NQR7iGvmmVsIOi8/dSuXcaSCxGPbnFsEYKIqfOu06EwFhT8znIN7Q0e6lzj0heCJSRcJwHuWGpz5Att2fpijbqow19z+aMiJCvzOE3LCTRVIK7L9khMEEu+BBFcHN79VcGKI4C6tO1vdhChUouU1anjlXQcIbfF/nFf9lRcLVBSIJy2us5KUGCkkhqkwLakcup7dQ+0i6MKR0LRkJQJTKQCQTEac7c741k6md/CjBceX5GIdiOrty9hG2KLdN9lquYXPt/5zQlq/XO/8jVP5n76rCSXu5Zu+R7NviLPDc4rl6mF2w/pk7+Ta5erzTe9GAQCr8KdNyhA7rovgvslO66DAMwpgeQhAfd2eKdFDWAoBNdf+ynUPhYrAPZgTSiODd+VduyqI539Nc9ZTMh/ptkQBaP+CB6ckaF3pZEQbje9JAUAyhEVWzMBJrOXZkD0EtvNEivfaYV1ZUgDu0OvoSTJQX2R17IXDqrl8zL4h4v+FKa/tOKBfD722ui0MaKMLZ/uyisWByV9M2UEgyoFdjO+wVzRmFAm4Kew8Fb0JqLH6/jG65kQG7jyNsGxHBe43T076bSrgkwCQWf5YDACi2oTXu2aHlL88YXuXbKnwkK9DcVoiywcFQC1uXZQvQHi7viBsm9Z9ThODQRekHEFnZMpGptTJmT0drVWnQ0kX/IW5GCr/1r9drqwCqQvum/dyVSMoaLttRaVMSi4TJpVVYOL5PaXB3dHYEvOYehITiJ2SZeeJaclZwcZv/GUuePzesCmC10bV5FuK94SmjAwkmF0buRbhpML8ywX+LP5FFEQUDMVMV0Ag+u7vaLxRdtAUs5xB/zzWlSzkTb/33N+GYSoiAUAqqdD2ZqvMLOK7weipezq2Kx/O25rPfL9HJpY5QqgwIzQ81gnFSMD5UFo03mfxD/dh4OEIAMTqv793vNGy4mQeSwQiCis7p1oMg0X7tC6a7be4jyzGAOC4+I2JtnUzlBmEUC/8KUsVhOyvh3MwEIHM3dgezpqp25h4ePwkoyK2hccrNSmZdWhitOmEiSFDv9w3YZq6WOu4LwIAWiJArBHIY6uWCByJD08aOv7c/UNtVjFdaJnwUuP87EgFIt3zpOHUY17hl/1WsUlQsgEvFZEQ6AYRfOXOoLRmVatJKU7G9xtmSCY3nblgupsMjUqEUahqcVg18B1JmKQWKpCG3XuNDck3vtXvtIJYq3BLA1mzhQrst58HeMPApjW9QN9xjrBUfpVpoNUCQe8RO4xyJBPnL/X9Dg6asHJhYVV2PYxZ54i65W1TOcO80f6ZzlfTXzLwBevCTTxv3FsiczfSE364MUjWa5msd56QjQ0kXWv6umudNyuExvN7jL7TRWUlPm1x/ww9ZccMmxmC5WRmjkB2GoclfpG71KtXWUYajLA5Ahffb+gJOm0fzAJApxu+gIUOc3cMdjPD7ECWLvarbnmCDovaUZwxbHkzr7d9ZvFtALDdBxXWc4RBcDRDIJC6QsbNjqkxSamy+Vde4nChOmqCwLB126SRz2lqaMG1VjigsTOKqSHe3+M10o3M6/HZas9n3kcyEiF8YsqAgKRU4dVe49hsUSEWO9/GRW060WMSoEn3lT3EILvrvmYWD20qEhb3HbvfaFk0UWGCzKWMcmTL/MXDmzB9qT5tCjU1RCdRfYqR0ZoGM1UDlBtQb4onTBDIEicadbfI1KW+bKXZbydC3C7QmXloYq1C1uCYWuiWrVPZnBFk7lKvjZV16So0o7gXFdC8RG32mtYRprdqnG6y6inq/MFsBaOKUMX8/2DeX4ScIrCO+/s1ySheiNJ66hL4xsairz8UAIDehwwVVSZASPkVLyBMXu6bcIoA2XtAN7hBpfsbNrT36B+MGk5Gnm8DGGWqChUiY8nQVQ2OEVqXtq4VEZ23yzpdgZiJYGSt7P3obQgb7bLLAwDzO14XACJEfAD0BEDYmf2OERgNfOFAaK0ypxKFrhAxAmij63EnTb4tlkQ6AMDCBQD1/UkRIEIEoBf7ko4ReDHZegDJgqd1UdlDGyPQrlBGY4iul7dJUAFgVESrLK5NuutRAP8bA4D6/pQAYXB//kjkh14H6Z8ov79FkwC4yTc0WQxAG4O6cAHkO1QAgOWlCpOWk0QAKy8DeKyuUAQ7e6hI77h/qLDjRDiijTIaA9kehTo+3W/vAEkA4A4KgJL0VoOAROeFR/IX2n2FqjHURcFoCg4zh54ZCZBOjVaDwPk+fioHALowsjCEgwIbJw3bbn7mcRgX1YCQW7tZ5gyBCWTHe/n5+W97o2wCAMvlOI/z4EyhWlVNlhp25eXTjrSOT7iTKpwgMHiSXN1uCQDIbMqtbGXfEDqfRGPkisrl3TFrkbYjRb8VgndbfgdNVkvqeQe+MCsGtNFPzz5UqUzlwzEjoFcL3x4rkFSD4PNfScV2HLW475gfly9HASIA+DYA4D95GYB2XMjf3Y+tkYw7QaBCWosIIwtno9AM4x+/HplCf9wvgvhLa/dw/T8DLAVE8RoYRQw4JttG0LM00yitjg188/BbuQd1A+VxObaWI2hDBCpLlleMGQqIRAAiQBLR19jzhxN2EQhrTUujn56NLk4KZXdC+DAuxxB9YEOZlKGGRatAAbUQSH0CIvryjH1DUL5zZGDHkTGPgQDLMUQf2H5EOLV+XoFWXEZkMgD5p79slm0gMObLpCOrbw9EMxOtahnA5Vj98e1HAmA2eg6lZOyTaE+DZEMFJatGrlw9HR0vXZtzfuHVy9FvHfRJLLlxjWC/zNcfOFSXsIHQuBi5cvX6k+NQoRYr8CqN7jgSQCZZdVycezps4/kFRiOjn8Z7y9NBMBbdcSTAkpsJzfpXeiFb5wii0HR45FT9o9myCKzF/+7kP/gzm0wUc8f4CiroranIyEBULW22RmJfW3q/myUhbrbf1dVzT8DaEGpkZCA6DqHYC0KxqKz4kgA23Xv75Kkl2coQLNU4MhAdKzVC8Bcnnw7DpZZTlLcyBFPargxEFwW9xAj1J5/D1n7iCoPuHwqZIuicyv3ualSVhZJEfDzanUK03x0R8Hmv+YxIq3z71frx4kjDB2PfeyacFLxfll1CyDWYt8HDuaZX3tOQLCaI/+g/PAoomf9rt8q26LQJgqLKoYtvdhZ3wvlg/ORzyawARtHvoK1l7QyysS+QVsE/MtgrU6GY4P3uJBgFGPvyvEsqbDExBPPmRn7SK6OUoCt5+5M53SUEcsgEYfrea0dKPC4Yf78rtZZwmf3OWoUYLRgaIs1Cr1yvK87vofjJrhSycH8YqqCJb8e1VBFBJH7yxymAuU9wwPAWWOONf+8rTUwnf5xCTcYOI4R007X+4jqAX/7eczUiYOWGoMTTffHNTPFtoeD5v0miRgj+Mnf0zyorg4+kiovl+AceilqNMhUy2fZrfaX5+WRH7QjKkzULvPVm580iMn7o/5K1I9jClVarc/e+8KeZ4k+1XtlRiUY3ZQihpeOVvvJn2l6SVNwhX2CJ6Yl4eftsOlY7AJBiBCK0XztcvnrXnpjCHVIhIyyNvWfUP9BeEu4QQjbZntljZPWZ2J1CwNJF7h3Dzfrm7gwC6WwfXDW8XG156I6EpiThrvcnjPsTM6//PaW1V6Gxtf2ni7rJiYLpbI0I2EZDzL/Vb3alWvA0uwO+oLXnzGPgTEaqOUKWLiXomPmGL9aKYGUNQdBDHzW0mrqcdui5mquQzOrnFIsN62tmiTUEL3epz2qtKtcoVZHUuiHaBy1fH9Yer02q2vA0+PzFXutpx9cqVd1G0NtvvWO95XSNUtUCt7aGG660bY1S1YUCAvNd2l/hIvVaparbCE2DlV5bZTP/Wotp6aEFhKVEX+Wtg7WwhDdeQJA+qtyy0IK1sMRK3hDpzOo5ufLWM4s1sEThgfSGpbE+O5vH3K9aOFp4xFa4wWwcXTv0gvsqxCQOAPxN52ytwq67n6o8NG+IyURfOmxj+xqkKm8833ckN3RbD0E0/8mUx/UJAQ6A3v5Tm37meqriJvJtcMIO2ERwP1W9BtQB3qnfe2w+0Kq5naqar8+CA1jolu3uwfLzLmfqCwAHKOy0YneXmZ+7Oi25gV6AA3KJXvs7HXLVEi2f55M1WbC/j8vr2+UhGeCA5lsOQr+rRQP3g8MAOOje07IT8LSL82EwC4ADSTzq4ML0Q6fdE+Fy/zgADtyC18FurD4jiW45Y4yJeXekqgNfgBxz2to0FeFqXM6Xr+3nFCc7ao9PudRpaBnIv3TDAQ7/GFfdS+7MCe6DuFxASDzkbNcpd4oG7r7dh/PVCoeFFmf7an2urG9bfhBd+8NZTttY+vLLLmTswAeDt5+d5ho+c+rgMy9uHsH34e7Dt5ezHBt2iMC5sL71fXIqqtxePHGq40vafKoKfHIqPr7hwVPnb6JtMlWRwIen4o9smOW0imAX3EyqCuj/82K8d8NJ6+D87RctdLrat3aIH7Oxgfrejbm5bryKA800SKVBnZr8vPYbbaDEDzYbWxiKpoqqg7qqLib2Qul75BvyBlf8XcHxlWYfTS78amGoPppY5TaNoD3+owMwlUEzFnb5GVX/GeqjelJpKjZOpBoG/rLx5xEAZX/Lls8vVzUZ/LGNT/5uDgHle42XnrL0Gz5sdP7qEVxdTOAuwl2Euwh3Ee4i3EW4i3AX4S5C5fH/XKDMXMmvtUwAAAAASUVORK5CYII=" alt="Karriere Bruecke"><span data-i18n="brand">Congrès Germano-Marocain</span></div>
+        <p data-i18n="footer_tagline">Your career bridge to Germany starts with one application.</p>
+      </div>
+      <div>
+        <h3 data-i18n="footer_contact_title">Contact</h3>
+        <ul>
+          <li><a href="mailto:contact@karriere-bruecke.com">contact@karriere-bruecke.com</a></li>
+          <li><a href="tel:+212611575155">+212 6 11 57 51 55</a></li>
+          <li><a href="tel:+21253522211">+212 5 35 52 22 11</a></li>
+          <li><a href="tel:+4915568604682">+49 15568 604682</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="footer_links_title">Links</h3>
+        <ul>
+          <li><a href="https://karriere-bruecke.com/" target="_blank" rel="noopener">karriere-bruecke.com</a></li>
+          <li><a href="https://congress.karriere-bruecke.com/congress" target="_blank" rel="noopener">congress.karriere-bruecke.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 Karriere Bruecke International. All rights reserved.</span>
+      <span data-i18n="footer_org">Organized by Karriere Bruecke International</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <span data-i18n="hero_cta">Claim your seat now</span>
+  <a href="#pricing" class="btn" data-i18n="nav_cta">Sign up</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+/* ======================================================
+   SUPABASE CONFIG — replace with your project's values
+   ====================================================== */
+const SUPABASE_URL = "https://luettzogwsbncbkyfhxd.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1ZXR0em9nd3NibmNia3lmaHhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMDk4NjcsImV4cCI6MjEwMTc4NTg2N30.AG6X8cS0-uTb9JZss7YTtH4DHhN6BvUO2GLCTXjJ4w0";
+let sb = null;
+try {
+  if (SUPABASE_URL.startsWith("http")) {
+    sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  }
+} catch (e) { console.warn("Supabase not configured yet.", e); }
+
+/* ======================================================
+   TRANSLATIONS
+   ====================================================== */
+const i18n = {
+fr: {
+  brand:"Congrès Germano-Marocain",
+  nav_about:"À propos", nav_partners:"Partenaires", nav_practical:"Infos pratiques", nav_cta:"S'inscrire",
+  hero_eyebrow:"Inscriptions ouvertes",
+  hero_title:"Vos compétences vous ont menés jusqu'ici. <span class=\"hl\">Voici comment aller plus loin.</span>",
+  hero_sub:"Arrêtez d'envoyer des CV dans le vide. Rencontrez les employeurs allemands, les partenaires de formation et les experts en reconnaissance qui peuvent vraiment faire avancer votre carrière — en face à face, à Casablanca, le 01 octobre.",
+  hero_badge_dates:"01 Oct 2026", hero_badge_location:"Casablanca · New Hotel",
+  hero_cta:"Réservez votre place", hero_cta2:"Voir ce qui vous attend",
+  hero_urgency:"Les candidatures sont examinées au fil de l'eau — plus vous postulez tôt, plus vite vous êtes dans la salle.",
+  cd_days:"Jours", cd_hours:"Heures", cd_mins:"Minutes", cd_secs:"Secondes",
+  marquee_1:"Votre formation", marquee_2:"Votre reconnaissance", marquee_3:"Votre intégration", marquee_4:"Votre avenir",
+  about_eyebrow:"Pourquoi ce congrès", about_title:"Ce n'est pas un salon de l'emploi comme les autres",
+  about_float:"Aucun frais caché. Aucune fausse promesse. Juste un processus clair et transparent.",
+  about_p1:"Vous n'avez pas passé des années à construire vos compétences pour continuer à envoyer des CV dans le vide. Le Congrès Germano-Marocain 2026 vous met dans la même salle que les personnes qui peuvent réellement faire avancer les choses — employeurs allemands, experts en reconnaissance et établissements de formation, tous à Casablanca, le 01 octobre.",
+  about_p2:"Ce n'est pas un événement de réseautage vague. C'est un processus structuré et sérieux : de vraies conversations, de vraies exigences, de vraies prochaines étapes — organisé par Karriere Bruecke International, sans aucune promesse qui ne pourrait pas être tenue.",
+  about_quote:"« Vous apportez les compétences. Nous apportons la salle où elles sont enfin remarquées. »",
+  objectives_eyebrow:"Ce que vous gagnez", objectives_title:"Ce que vous en retirerez",
+  obj_1_t:"Savoir exactement où vous en êtes", obj_1_d:"Obtenez des réponses précises sur la formation, la reconnaissance et le niveau de langue dont vous avez besoin — fini les suppositions sur les forums.",
+  obj_2_t:"Parler aux décideurs, pas aux intermédiaires", obj_2_d:"Asseyez-vous face aux organisations allemandes qui recrutent et forment vraiment en ce moment — pas un recruteur à trois intermédiaires de distance.",
+  obj_3_t:"Voir le vrai parcours de formation", obj_3_d:"Les établissements marocains vous montrent de vrais programmes, des équipements réels et à quoi ressemble vraiment la formation au quotidien — pas une brochure.",
+  obj_4_t:"Ne plus être un nom dans une pile de CV", obj_4_d:"Les employeurs allemands repartent avec une image claire de vos qualifications et de votre potentiel — parce que vous le leur avez montré vous-même.",
+  obj_5_t:"Être protégé des fausses promesses", obj_5_d:"Chaque organisation présente ici respecte des principes de recrutement transparents et équitables. Aucun frais caché, aucune fausse garantie.",
+  obj_6_t:"Repartir avec une prochaine étape, pas juste une carte de visite", obj_6_d:"Un plan de suivi documenté pour que votre élan ne s'arrête pas à la fin du congrès.",
+  audiences_eyebrow:"Vérifiez par vous-même", audiences_title:"Est-ce votre moment ?",
+  audiences_banner:"Si vous lisez ceci, il y a de bonnes chances que l'une de ces descriptions vous corresponde.",
+  aud_de_title:"Vous recrutez en Allemagne",
+  aud_de_1:"Vous dirigez les RH, le recrutement ou un programme de formation", aud_de_2:"Vous avez besoin de personnes qualifiées, pas seulement de candidatures", aud_de_3:"Vous gérez l'intégration et l'accueil des nouveaux employés", aud_de_4:"Vous travaillez dans un organisme de reconnaissance ou de qualification", aud_de_5:"Vous représentez une caisse d'assurance maladie ou la protection sociale",
+  aud_ma_title:"Vous formez la prochaine génération",
+  aud_ma_1:"Vous dirigez une école, un institut ou un centre de formation", aud_ma_2:"Vous représentez une université ou un établissement d'enseignement supérieur", aud_ma_3:"Vous enseignez la langue ou des programmes de préparation", aud_ma_4:"Vous dirigez une association ou une fédération professionnelle", aud_ma_5:"Vous travaillez dans l'emploi ou l'orientation professionnelle",
+  aud_cand_title:"Vous êtes prêt à franchir le pas",
+  aud_cand_1:"Vous êtes qualifié ou récemment diplômé et voulez aller plus loin", aud_cand_2:"Vous envisagez une formation professionnelle (Ausbildung) en Allemagne", aud_cand_3:"Vous êtes déjà dans une procédure de reconnaissance et avez besoin d'y voir clair", aud_cand_4:"Vous voulez un véritable entretien, pas un « peut-être » de plus",
+  partners_eyebrow:"Intervenants & partenaires", partners_title:"Les personnes à qui vous parlerez vraiment",
+  partners_note:"Liste des intervenants et statut des partenaires sous réserve de confirmation finale par l'organisateur.",
+  nav_pricing:"Tarifs",
+  pricing_eyebrow:"Billets", pricing_title:"Réservez votre place",
+  pricing_sub:"Chaque formule vous donne un accès complet à la journée du congrès. La seule question est : combien d'accès supplémentaires voulez-vous — et à quelle vitesse allez-vous agir.",
+  pricing_urgency:"Les places sont limitées et les candidatures sont examinées au fil de l'eau.",
+  plan_earlybird_badge:"Meilleur prix", plan_earlybird_name:"Early Bird", plan_earlybird_deadline:"Réservez avant le 31 juillet 2026", plan_earlybird_closed:"Inscriptions closes",
+  plan_standard_badge:"Recommandé", plan_standard_name:"Standard", plan_standard_deadline:"À partir du 1er août 2026", plan_standard_notyet:"Ouvre le 1er août 2026",
+  plan_premium_badge:"Professionnels & étudiants", plan_premium_name:"Premium", plan_premium_deadline:"Pour les professionnels/étudiants en santé et physiothérapie",
+  plan_premium_note:"Exclusivement pour le personnel soignant, les physiothérapeutes, ainsi que les élèves/étudiants et professionnels souhaitant travailler en Allemagne. Pas pour les employeurs ou les partenaires officiels.",
+  feat_congress:"Accès à la journée complète du congrès", feat_networking:"Sessions de networking", feat_docs:"Documents de conférence", feat_catering:"Pauses café & déjeuner", feat_certificate:"Certificat de participation",
+  feat_speeddating_std:"Speed-dating avec les employeurs possible en seconde priorité — après les places Premium, sans garantie",
+  feat_speeddating_premium:"Accès garanti et prioritaire au speed-dating avec les employeurs",
+  plan_cta:"Réserver maintenant",
+  signup_plan_none:"Aucune formule sélectionnée pour l'instant — choisissez-en une ci-dessous",
+  signup_plan_view:"Voir les formules",
+  signup_plan_selected:"Formule sélectionnée",
+  form_plan_required_error:"Veuillez sélectionner une formule avant de valider.",
+  practical_eyebrow:"Bon à savoir", practical_title:"Informations pratiques",
+  pr_dates_l:"Date", pr_dates_v:"01 octobre 2026",
+  pr_city_l:"Ville", pr_city_v:"Casablanca, Maroc",
+  pr_venue_l:"Lieu", pr_venue_v:"New Hotel, Casablanca",
+  pr_lang_l:"Langues", pr_lang_v:"Français et allemand, avec interprétation selon la session",
+  pr_dossier_l:"Dossier de candidature", pr_dossier_v:"CV, diplômes, attestations et justificatifs linguistiques, selon la demande de l'organisateur",
+  pr_price_l:"Frais de participation", pr_price_v:"Communiqués individuellement une fois votre candidature approuvée",
+  signup_eyebrow:"Inscription", signup_title:"C'est à vous de jouer",
+  signup_sub:"Quelque part dans cette salle se trouve peut-être l'employeur qui recherche exactement votre profil. La seule façon de le savoir, c'est d'y être.",
+  signup_reassure:"La candidature est gratuite et prend une minute. Vous ne payez qu'une fois votre candidature approuvée.",
+  step1_t:"Envoyez vos informations", step1_d:" Nom complet, e-mail et numéro de téléphone — moins d'une minute.",
+  step2_t:"Nous examinons votre candidature", step2_d:" Notre équipe vérifie votre profil par rapport aux axes du congrès.",
+  step3_t:"Nous vous contactons", step3_d:" Une fois approuvée, nous vous contactons pour confirmer votre place et organiser le paiement.",
+  form_name:"Nom complet", form_email:"Adresse e-mail", form_phone:"Numéro de téléphone",
+  form_consent:"J'accepte que mes informations soient conservées et utilisées par Karriere Bruecke International pour traiter ma candidature à ce congrès.",
+  form_submit:"Envoyer la candidature",
+  form_sending:"Envoi en cours…",
+  form_success_title:"Candidature reçue !",
+  form_success:"Merci — votre candidature est en cours d'examen. Nous vous contacterons une fois qu'elle sera approuvée pour organiser les prochaines étapes et le paiement.",
+  form_error:"Une erreur s'est produite lors de l'envoi de votre candidature. Veuillez réessayer dans un instant.",
+  form_error_config:"L'inscription n'est pas encore connectée — veuillez contacter directement l'organisateur à contact@karriere-bruecke.com.",
+  footer_tagline:"Votre passerelle professionnelle vers l'Allemagne commence par une candidature.",
+  footer_contact_title:"Contact", footer_links_title:"Liens",
+  footer_rights:"© 2026 Karriere Bruecke International. Tous droits réservés.",
+  footer_org:"Organisé par Karriere Bruecke International"
+},
+de: {
+  brand:"Deutsch-Marokkanischer Kongress",
+  nav_about:"Über uns", nav_partners:"Partner", nav_practical:"Praktische Infos", nav_cta:"Anmelden",
+  hero_eyebrow:"Bewerbungen jetzt offen",
+  hero_title:"Ihre Qualifikation hat Sie bis hierher gebracht. <span class=\"hl\">So geht es weiter.</span>",
+  hero_sub:"Schluss mit Bewerbungen ins Leere. Treffen Sie die deutschen Arbeitgeber, Ausbildungspartner und Anerkennungsexperten, die Ihre Karriere wirklich voranbringen können — persönlich, in Casablanca, am 01. Oktober.",
+  hero_badge_dates:"01. Okt. 2026", hero_badge_location:"Casablanca · New Hotel",
+  hero_cta:"Jetzt Platz sichern", hero_cta2:"Was Sie erwartet",
+  hero_urgency:"Bewerbungen werden laufend geprüft — je früher Sie sich bewerben, desto früher sind Sie im Raum.",
+  cd_days:"Tage", cd_hours:"Stunden", cd_mins:"Minuten", cd_secs:"Sekunden",
+  marquee_1:"Ihre Ausbildung", marquee_2:"Ihre Anerkennung", marquee_3:"Ihre Integration", marquee_4:"Ihre Zukunft",
+  about_eyebrow:"Warum es das gibt", about_title:"Das ist keine gewöhnliche Jobmesse",
+  about_float:"Keine versteckten Kosten. Keine falschen Versprechen. Nur ein klarer, transparenter Prozess.",
+  about_p1:"Sie haben nicht jahrelang an Ihren Fähigkeiten gearbeitet, um Bewerbungen ins Leere zu schicken. Der Deutsch–Marokkanische Kongress 2026 bringt Sie in denselben Raum wie die Menschen, die tatsächlich etwas bewegen können — deutsche Arbeitgeber, Anerkennungsexperten und Ausbildungseinrichtungen, am 01. Oktober, nur in Casablanca.",
+  about_p2:"Das ist kein vages Networking-Event. Es ist ein strukturierter, ernsthafter Prozess: echte Gespräche, echte Anforderungen, echte nächste Schritte — organisiert von Karriere Bruecke International, ohne Versprechen, die nicht gehalten werden können.",
+  about_quote:"„Sie bringen die Fähigkeiten mit. Wir bringen den Raum, in dem sie endlich gesehen werden.“",
+  objectives_eyebrow:"Was Sie gewinnen", objectives_title:"Das nehmen Sie mit",
+  obj_1_t:"Wissen Sie genau, wo Sie stehen", obj_1_d:"Präzise Antworten zu Ausbildung, Anerkennung und dem Sprachniveau, das Sie brauchen — kein Rätselraten mehr in Foren.",
+  obj_2_t:"Sprechen Sie mit Entscheidern, nicht mit Türstehern", obj_2_d:"Sitzen Sie den deutschen Organisationen gegenüber, die gerade wirklich einstellen und ausbilden — nicht drei Stellen von einer Vermittlung entfernt.",
+  obj_3_t:"Sehen Sie den echten Ausbildungsweg", obj_3_d:"Marokkanische Institutionen zeigen Ihnen echte Programme, Ausstattung und wie der Ausbildungsalltag wirklich aussieht — keine Broschüre.",
+  obj_4_t:"Werden Sie mehr als ein Name im CV-Stapel", obj_4_d:"Deutsche Arbeitgeber gehen mit einem klaren Bild Ihrer Qualifikationen und Ihres Potenzials — weil Sie es ihnen selbst gezeigt haben.",
+  obj_5_t:"Seien Sie vor falschen Versprechen geschützt", obj_5_d:"Jede Organisation hier folgt transparenten, fairen Rekrutierungsprinzipien. Keine versteckten Kosten, keine falschen Garantien.",
+  obj_6_t:"Gehen Sie mit einem nächsten Schritt, nicht nur einer Visitenkarte", obj_6_d:"Ein dokumentierter Nachverfolgungsplan, damit Ihr Schwung nicht endet, sobald der Kongress vorbei ist.",
+  audiences_eyebrow:"Prüfen Sie sich selbst", audiences_title:"Ist das Ihr Moment?",
+  audiences_banner:"Wenn Sie das hier lesen, ist die Chance groß, dass eine dieser Beschreibungen auf Sie zutrifft.",
+  aud_de_title:"Sie stellen in Deutschland ein",
+  aud_de_1:"Sie leiten HR, Recruiting oder ein Ausbildungsprogramm", aud_de_2:"Sie brauchen qualifizierte Menschen, nicht nur Bewerbungen", aud_de_3:"Sie verantworten Integration und Onboarding", aud_de_4:"Sie arbeiten bei einer Anerkennungs- oder Qualifizierungsstelle", aud_de_5:"Sie vertreten eine Krankenkasse oder soziale Sicherung",
+  aud_ma_title:"Sie bilden die nächste Generation aus",
+  aud_ma_1:"Sie leiten eine Schule, ein Institut oder ein Ausbildungszentrum", aud_ma_2:"Sie vertreten eine Universität oder Hochschule", aud_ma_3:"Sie unterrichten Sprache oder Vorbereitungsprogramme", aud_ma_4:"Sie leiten einen Berufsverband oder Fachverband", aud_ma_5:"Sie arbeiten in Arbeitsvermittlung oder Berufsorientierung",
+  aud_cand_title:"Sie sind bereit für den nächsten Schritt",
+  aud_cand_1:"Sie sind qualifiziert oder frisch ausgebildet und wollen mehr", aud_cand_2:"Sie erwägen eine Ausbildung in Deutschland", aud_cand_3:"Sie sind bereits im Anerkennungsverfahren und brauchen Klarheit", aud_cand_4:"Sie wollen ein echtes Gespräch, kein weiteres Vielleicht",
+  partners_eyebrow:"Referenten & Partner", partners_title:"Mit diesen Menschen sprechen Sie wirklich",
+  partners_note:"Referentenliste und Partnerstatus vorbehaltlich der endgültigen Bestätigung durch den Veranstalter.",
+  nav_pricing:"Preise",
+  pricing_eyebrow:"Tickets", pricing_title:"Sichern Sie sich Ihren Platz",
+  pricing_sub:"Jedes Ticket gibt Ihnen vollen Zugang zum Kongresstag. Die einzige Frage ist, wie viel zusätzlichen Zugang Sie wollen — und wie schnell Sie handeln.",
+  pricing_urgency:"Plätze sind begrenzt, Bewerbungen werden laufend geprüft.",
+  plan_earlybird_badge:"Bester Preis", plan_earlybird_name:"Early Bird", plan_earlybird_deadline:"Buchbar bis 31. Juli 2026", plan_earlybird_closed:"Anmeldung geschlossen",
+  plan_standard_badge:"Empfohlen", plan_standard_name:"Standard", plan_standard_deadline:"Ab 1. August 2026", plan_standard_notyet:"Öffnet am 1. August 2026",
+  plan_premium_badge:"Fachkräfte & Studierende", plan_premium_name:"Premium", plan_premium_deadline:"Für Pflegekräfte, Physiotherapeuten / Auszubildende",
+  plan_premium_note:"Ausschließlich für Pflegepersonal, Physiotherapeuten sowie Schüler, Studierende und Fachkräfte, die in Deutschland arbeiten möchten. Nicht für Arbeitgeber oder offizielle Partner.",
+  feat_congress:"Zugang zum gesamten Kongresstag", feat_networking:"Networking-Sessions", feat_docs:"Konferenzunterlagen", feat_catering:"Kaffeepausen & Mittagessen", feat_certificate:"Teilnahmezertifikat",
+  feat_speeddating_std:"Speed-Dating mit Arbeitgebern nachrangig möglich — nach den Premium-Plätzen, ohne Garantie",
+  feat_speeddating_premium:"Garantierter, bevorzugter Zugang zum Speed-Dating mit Arbeitgebern",
+  plan_cta:"Jetzt buchen",
+  signup_plan_none:"Noch kein Ticket ausgewählt — wählen Sie unten eins aus",
+  signup_plan_view:"Tickets ansehen",
+  signup_plan_selected:"Gewähltes Ticket",
+  form_plan_required_error:"Bitte wählen Sie vor dem Absenden ein Ticket aus.",
+  practical_eyebrow:"Gut zu wissen", practical_title:"Praktische Informationen",
+  pr_dates_l:"Termin", pr_dates_v:"1. Oktober 2026",
+  pr_city_l:"Stadt", pr_city_v:"Casablanca, Marokko",
+  pr_venue_l:"Ort", pr_venue_v:"New Hotel, Casablanca",
+  pr_lang_l:"Sprachen", pr_lang_v:"Französisch und Deutsch, mit Übersetzung je nach Sitzung",
+  pr_dossier_l:"Bewerbungsunterlagen", pr_dossier_v:"Lebenslauf, Diplome, Zeugnisse und Sprachnachweise, nach Anforderung des Veranstalters",
+  pr_price_l:"Teilnahmegebühr", pr_price_v:"Wird Ihnen individuell mitgeteilt, sobald Ihre Bewerbung genehmigt wurde",
+  signup_eyebrow:"Anmeldung", signup_title:"Das ist Ihr Zug",
+  signup_sub:"Irgendwo in diesem Raum könnte der Arbeitgeber sitzen, der genau nach Ihrem Profil sucht. Der einzige Weg, es herauszufinden, ist dabei zu sein.",
+  signup_reassure:"Die Bewerbung ist kostenlos und dauert eine Minute. Sie zahlen erst, wenn Ihre Bewerbung genehmigt wurde.",
+  step1_t:"Angaben einreichen", step1_d:" Name, E-Mail und Telefonnummer — dauert weniger als eine Minute.",
+  step2_t:"Wir prüfen Ihre Bewerbung", step2_d:" Unser Team gleicht Ihr Profil mit den Schwerpunkten des Kongresses ab.",
+  step3_t:"Wir kontaktieren Sie", step3_d:" Nach Genehmigung melden wir uns, um Ihren Platz und die Zahlung zu klären.",
+  form_name:"Vollständiger Name", form_email:"E-Mail-Adresse", form_phone:"Telefonnummer",
+  form_consent:"Ich stimme zu, dass meine Angaben von Karriere Bruecke International gespeichert und zur Bearbeitung meiner Bewerbung für diesen Kongress verwendet werden.",
+  form_submit:"Bewerbung senden",
+  form_sending:"Wird gesendet…",
+  form_success_title:"Bewerbung erhalten!",
+  form_success:"Vielen Dank — Ihre Bewerbung wird nun geprüft. Wir melden uns bei Ihnen, sobald sie genehmigt ist, um die nächsten Schritte und die Zahlung zu klären.",
+  form_error:"Beim Senden Ihrer Bewerbung ist ein Fehler aufgetreten. Bitte versuchen Sie es gleich noch einmal.",
+  form_error_config:"Die Anmeldung ist noch nicht verbunden — bitte kontaktieren Sie den Veranstalter direkt unter contact@karriere-bruecke.com.",
+  footer_tagline:"Ihre berufliche Brücke nach Deutschland beginnt mit einer Bewerbung.",
+  footer_contact_title:"Kontakt", footer_links_title:"Links",
+  footer_rights:"© 2026 Karriere Bruecke International. Alle Rechte vorbehalten.",
+  footer_org:"Organisiert von Karriere Bruecke International"
+},
+ar: {
+  brand:"المؤتمر الألماني المغربي",
+  nav_about:"نبذة", nav_partners:"الشركاء", nav_practical:"معلومات عملية", nav_cta:"سجّل دابا",
+  hero_eyebrow:"التسجيل مفتوح دابا",
+  hero_title:"الكفاءة ديالك وصلاتك لهنا. <span class=\"hl\">هادي هي الطريقة باش تكمل.</span>",
+  hero_sub:"وقف تصيفط CV فالفاضي. تعرف على أرباب العمل الألمان، شركاء التكوين وخبراء الاعتراف اللي يقدرو يقدمو المسار المهني ديالك — وجها لوجه، فالدار البيضاء، نهار 01 أكتوبر.",
+  hero_badge_dates:"01 أكتوبر 2026", hero_badge_location:"الدار البيضاء · نيو هوتيل",
+  hero_cta:"احجز المكان ديالك دابا", hero_cta2:"شوف أش كاين",
+  hero_urgency:"الطلبات كيتفحصو أولا بأول — كلما سجلتي بكري كلما دخلتي بكري.",
+  cd_days:"نهار", cd_hours:"ساعة", cd_mins:"دقيقة", cd_secs:"ثانية",
+  marquee_1:"التكوين ديالك", marquee_2:"الاعتراف ديالك", marquee_3:"الاندماج ديالك", marquee_4:"المستقبل ديالك",
+  about_eyebrow:"علاش كاين هاد المؤتمر", about_title:"هادي ماشي معرض شغل عادي",
+  about_float:"بلا مصاريف مخبية. بلا وعود كاذبة. غير مسار واضح وشفاف.",
+  about_p1:"ماقضيتيش سنين تبني الكفاءة ديالك باش تبقى تصيفط CV فالفاضي. المؤتمر الألماني المغربي 2026 كيدخلك لنفس القاعة مع الناس اللي يقدرو يحركو الأمور بجد — أرباب العمل الألمان، خبراء الاعتراف ومؤسسات التكوين، نهار 01 أكتوبر، غير فالدار البيضاء.",
+  about_p2:"هادا ماشي حدث تواصل عادي. هو مسار منظم وجدي: حوارات حقيقية، متطلبات واضحة، خطوات جاية واقعية — منظم من طرف Karriere Bruecke International، بلا أي وعد ما يقدروش يوفيوه.",
+  about_quote:"«نتا كتجيب الكفاءة. حنا كنجيبو القاعة اللي فيها غادي تتشاف أخيرا.»",
+  objectives_eyebrow:"أش غادي تستافد", objectives_title:"أش غادي ترجع بيه",
+  obj_1_t:"تعرف بالضبط فين راك واقف", obj_1_d:"جاوب واضح على التكوين، الاعتراف والمستوى اللغوي اللي محتاجو — بلا حدس فالمنتديات.",
+  obj_2_t:"تهضر مع صناع القرار، ماشي حراس الباب", obj_2_d:"تجلس قدام المنظمات الألمانية اللي كتوظف وتكون بجد دابا — ماشي وسيط بعيد بثلاث درجات.",
+  obj_3_t:"تشوف المسار الحقيقي ديال التكوين", obj_3_d:"المؤسسات المغربية كتوريك برامج حقيقية، تجهيزات وكيفاش كيكون التكوين اليومي — ماشي بروشور.",
+  obj_4_t:"وقف تكون غير اسم فكومة ديال CVs", obj_4_d:"أرباب العمل الألمان كيخرجو بصورة واضحة على المؤهلات والإمكانيات ديالك — لأنك نتا لي وريتهم ذلك.",
+  obj_5_t:"كن محمي من الوعود الفارغة", obj_5_d:"كل منظمة هنا كتخدم بمبادئ توظيف شفافة وعادلة. بلا مصاريف مخبية، بلا ضمانات كاذبة.",
+  obj_6_t:"خرج بخطوة جاية، ماشي غير كارت", obj_6_d:"خطة متابعة موثقة باش الزخم ديالك ما يوقفش ملي يسالي المؤتمر.",
+  audiences_eyebrow:"شوف راسك", audiences_title:"واش هادي هي الفرصة ديالك؟",
+  audiences_banner:"إلا كتقرا هادشي، كاين احتمال كبير بلي وحدة من هاد الوصفات كتهضر عليك.",
+  aud_de_title:"نتا كتوظف فألمانيا",
+  aud_de_1:"كتقود الموارد البشرية، التوظيف أو برنامج تكوين", aud_de_2:"محتاج ناس مؤهلين، ماشي غير طلبات", aud_de_3:"كتدبر الاندماج والاستقبال", aud_de_4:"كتخدم فهيئة اعتراف أو تأهيل", aud_de_5:"كتمثل تأمين صحي أو حماية اجتماعية",
+  aud_ma_title:"نتا كتكون الجيل الجاي",
+  aud_ma_1:"كتدير مدرسة، معهد أو مركز تكوين", aud_ma_2:"كتمثل جامعة أو مؤسسة تعليم عالي", aud_ma_3:"كتدرس اللغة أو برامج التحضير", aud_ma_4:"كتقود جمعية أو فدرالية مهنية", aud_ma_5:"كتخدم فالتشغيل أو التوجيه المهني",
+  aud_cand_title:"نتا واجد باش تدير الخطوة",
+  aud_cand_1:"مؤهل أو تخرجتي مؤخرا وبغيتي كتر", aud_cand_2:"كتفكر فتكوين مهني (Ausbildung) فألمانيا", aud_cand_3:"راك ديجا فمسار الاعتراف ومحتاج وضوح", aud_cand_4:"بغيتي مقابلة حقيقية، ماشي «ربما» أخرى",
+  partners_eyebrow:"المتدخلين والشركاء", partners_title:"الناس اللي غادي تهضر معاهم بجد",
+  partners_note:"لائحة المتدخلين وصفة الشركاء رهينة بالتأكيد النهائي من طرف المنظم.",
+  nav_pricing:"الأثمنة",
+  pricing_eyebrow:"التذاكر", pricing_title:"احجز المكان ديالك",
+  pricing_sub:"كل باقة كتعطيك ولوج كامل ليوم المؤتمر. السؤال الوحيد هو شحال بغيتي تزيد من قيمة إضافية — وبشحال دغيا غادي تحرك.",
+  pricing_urgency:"الأماكن محدودة، والطلبات كيتفحصو أولا بأول.",
+  plan_earlybird_badge:"أحسن ثمن", plan_earlybird_name:"Early Bird", plan_earlybird_deadline:"التسجيل قبل 31 يوليوز 2026", plan_earlybird_closed:"التسجيل مسدود",
+  plan_standard_badge:"موصى بها", plan_standard_name:"Standard", plan_standard_deadline:"من فاتح غشت 2026", plan_standard_notyet:"غيبدا فاتح غشت 2026",
+  plan_premium_badge:"للمهنيين والطلبة", plan_premium_name:"Premium", plan_premium_deadline:"خاص بمهنيي الصحة والفيزيوتيرابيا والطلبة",
+  plan_premium_note:"خاص فقط بالعاملين فالصحة، الفيزيوتيرابيين، والتلاميذ والطلبة والمهنيين اللي بغاو يخدمو فألمانيا. ماشي لأرباب العمل ولا الشركاء الرسميين.",
+  feat_congress:"الدخول لكامل يوم المؤتمر", feat_networking:"جلسات التواصل والتعارف", feat_docs:"وثائق المؤتمر", feat_catering:"استراحات القهوة والغداء", feat_certificate:"شهادة المشاركة",
+  feat_speeddating_std:"لقاء Speed-dating مع أرباب العمل ممكن كأولوية تانية — من بعد أماكن Premium، بلا ضمان",
+  feat_speeddating_premium:"ولوج مضمون وبالأولوية للقاء Speed-dating مع أرباب العمل",
+  plan_cta:"حجز دابا",
+  signup_plan_none:"مازال ماخترتيش باقة — اختار وحدة من تحت",
+  signup_plan_view:"شوف الباقات",
+  signup_plan_selected:"الباقة المختارة",
+  form_plan_required_error:"خاصك تختار باقة قبل ما تصيفط الطلب.",
+  practical_eyebrow:"معلومات مفيدة", practical_title:"معلومات عملية",
+  pr_dates_l:"التاريخ", pr_dates_v:"1 أكتوبر 2026",
+  pr_city_l:"المدينة", pr_city_v:"الدار البيضاء، المغرب",
+  pr_venue_l:"المكان", pr_venue_v:"نيو هوتيل، الدار البيضاء",
+  pr_lang_l:"اللغات", pr_lang_v:"الفرنسية والألمانية، مع الترجمة الفورية حسب الجلسة",
+  pr_dossier_l:"الملف المطلوب", pr_dossier_v:"السيرة الذاتية، الدبلومات، الشواهد وإثبات المستوى اللغوي، حسب طلب المنظم",
+  pr_price_l:"رسوم المشاركة", pr_price_v:"غادي نبلغوك بيها بشكل فردي من بعد ما توافق على طلبك",
+  signup_eyebrow:"التسجيل", signup_title:"هادي هي الفرصة ديالك",
+  signup_sub:"يمكن رب العمل اللي كيقلب بالضبط على البروفايل ديالك يكون فتلك القاعة. الطريقة الوحيدة باش تعرف هي تكون حاضر.",
+  signup_reassure:"التسجيل مجاني وكيدوم دقيقة. غادي تخلص غير من بعد ما يتوافق على الطلب ديالك.",
+  step1_t:"صيفط معلوماتك", step1_d:" الاسم الكامل، البريد الإلكتروني ورقم الهاتف — كيدوم أقل من دقيقة.",
+  step2_t:"كنفحصو طلبك", step2_d:" الفريق ديالنا كيقارن الملف ديالك مع محاور المؤتمر.",
+  step3_t:"كنتواصلو معاك", step3_d:" من بعد الموافقة، غانتواصلو معاك باش نأكدو المكان والأداء.",
+  form_name:"الاسم الكامل", form_email:"البريد الإلكتروني", form_phone:"رقم الهاتف",
+  form_consent:"كنوافق على أن المعلومات ديالي غادي تتخزن وتستعمل من طرف Karriere Bruecke International باش تتعالج طلب المشاركة ديالي فهاد المؤتمر.",
+  form_submit:"صيفط الطلب",
+  form_sending:"كيتصيفط…",
+  form_success_title:"توصلنا بالطلب ديالك!",
+  form_success:"شكرا — الطلب ديالك دابا فطور المراجعة. غانتواصلو معاك من بعد الموافقة باش نحددو الخطوات الجاية والأداء.",
+  form_error:"وقع مشكل ملي كنصيفطو الطلب ديالك. عاود المحاولة من بعد شوية.",
+  form_error_config:"التسجيل مازال ماتربطش — تواصل مباشرة مع المنظم عبر contact@karriere-bruecke.com.",
+  footer_tagline:"الجسر المهني ديالك لألمانيا كيبدا بطلب واحد.",
+  footer_contact_title:"تواصل", footer_links_title:"روابط",
+  footer_rights:"© 2026 Karriere Bruecke International. جميع الحقوق محفوظة.",
+  footer_org:"تنظيم Karriere Bruecke International"
+}
+};
+
+/* ======================================================
+   PLAN SELECTION
+   ====================================================== */
+const planMeta = {
+  earlybird:{ price:149, nameKey:"plan_earlybird_name" },
+  standard: { price:199, nameKey:"plan_standard_name" },
+  premium:  { price:249, nameKey:"plan_premium_name" }
+};
+const earlyBirdCutoff = new Date("2026-08-01T00:00:00");
+let selectedPlan = null;
+
+function updatePlanAvailability(){
+  const closed = new Date() >= earlyBirdCutoff;
+  const ebCta = document.getElementById("earlybirdCta");
+  const ebChip = document.getElementById("chipEarlybird");
+  const ebDeadline = document.getElementById("earlybirdDeadline");
+  if (closed){
+    ebCta.disabled = true;
+    ebChip.disabled = true;
+    ebDeadline.setAttribute("data-i18n","plan_earlybird_closed");
+    ebDeadline.textContent = i18n[currentLang].plan_earlybird_closed;
+    if (selectedPlan === "earlybird") selectedPlan = null;
+  }
+}
+
+function refreshPlanTexts(){
+  const dict = i18n[currentLang];
+  Object.keys(planMeta).forEach(id=>{
+    const chip = document.getElementById("chip" + id.charAt(0).toUpperCase() + id.slice(1));
+    if (chip) chip.textContent = dict[planMeta[id].nameKey] + " · " + planMeta[id].price + "€";
+  });
+  const ebDeadline = document.getElementById("earlybirdDeadline");
+  if (ebDeadline && ebDeadline.getAttribute("data-i18n") === "plan_earlybird_closed"){
+    ebDeadline.textContent = dict.plan_earlybird_closed;
+  }
+
+  const nameEl = document.getElementById("planSummaryName");
+  const detailEl = document.getElementById("planSummaryDetail");
+  if (selectedPlan){
+    nameEl.textContent = dict.signup_plan_selected + ": " + dict[planMeta[selectedPlan].nameKey];
+    detailEl.textContent = planMeta[selectedPlan].price + "€";
+  } else {
+    nameEl.textContent = dict.signup_plan_none;
+    detailEl.textContent = "";
+  }
+}
+
+function selectPlan(id, scrollToForm){
+  if (!planMeta[id]) return;
+  const cta = document.getElementById(id + "Cta");
+  if (cta && cta.disabled) return;
+
+  selectedPlan = id;
+  document.querySelectorAll(".plan-card").forEach(c=>{
+    c.classList.toggle("selected", c.dataset.planCard === id);
+  });
+  document.querySelectorAll(".plan-chip").forEach(c=>{
+    c.classList.toggle("active", c.dataset.plan === id);
+  });
+  document.getElementById("planError").classList.remove("show");
+  refreshPlanTexts();
+
+  if (scrollToForm){
+    document.getElementById("signup").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
+
+document.querySelectorAll(".plan-cta").forEach(btn=>{
+  btn.addEventListener("click", ()=> selectPlan(btn.dataset.plan, true));
+});
+document.querySelectorAll(".plan-chip").forEach(btn=>{
+  btn.addEventListener("click", ()=> selectPlan(btn.dataset.plan, false));
+});
+document.getElementById("planScrollLink").addEventListener("click", ()=>{
+  document.getElementById("pricing").scrollIntoView({behavior:"smooth", block:"start"});
+});
+
+let currentLang = "fr";
+
+function applyLang(lang){
+  currentLang = lang;
+  const dict = i18n[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll(".lang-switch button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+  if (lang === "ar"){
+    document.body.setAttribute("dir","rtl");
+    document.body.setAttribute("lang","ar");
+  } else {
+    document.body.setAttribute("dir","ltr");
+    document.body.setAttribute("lang", lang);
+  }
+  localStorage.setItem("congress_lang", lang);
+  refreshPlanTexts();
+}
+
+document.querySelectorAll(".lang-switch button").forEach(btn=>{
+  btn.addEventListener("click", ()=> applyLang(btn.dataset.lang));
+});
+
+updatePlanAvailability();
+const savedLang = localStorage.getItem("congress_lang");
+applyLang(savedLang && i18n[savedLang] ? savedLang : "fr");
+
+/* ======================================================
+   SCROLL REVEAL
+   ====================================================== */
+const revealEls = document.querySelectorAll(".reveal");
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if (entry.isIntersecting){
+      entry.target.classList.add("in");
+      io.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* ======================================================
+   COUNTDOWN TO CONGRESS
+   ====================================================== */
+const congressStart = new Date("2026-10-01T09:00:00");
+function updateCountdown(){
+  const now = new Date();
+  const diff = congressStart - now;
+  const dEl = document.getElementById("cdDays");
+  const hEl = document.getElementById("cdHours");
+  const mEl = document.getElementById("cdMins");
+  const sEl = document.getElementById("cdSecs");
+  if (!dEl) return;
+  if (diff <= 0){
+    dEl.textContent = "0"; hEl.textContent = "0"; mEl.textContent = "0"; sEl.textContent = "0";
+    return;
+  }
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const mins = Math.floor((totalSeconds % 3600) / 60);
+  const secs = totalSeconds % 60;
+  dEl.textContent = days;
+  hEl.textContent = String(hours).padStart(2,"0");
+  mEl.textContent = String(mins).padStart(2,"0");
+  sEl.textContent = String(secs).padStart(2,"0");
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* ======================================================
+   STICKY MOBILE CTA
+   ====================================================== */
+const stickyCta = document.getElementById("stickyCta");
+const heroSection = document.querySelector(".hero");
+const signupSection = document.getElementById("signup");
+if (stickyCta && heroSection && signupSection){
+  const stickyIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.target === heroSection){
+        if (!entry.isIntersecting) stickyCta.dataset.pastHero = "1";
+        else stickyCta.dataset.pastHero = "0";
+      }
+      if (entry.target === signupSection){
+        stickyCta.dataset.atSignup = entry.isIntersecting ? "1" : "0";
+      }
+      const show = stickyCta.dataset.pastHero === "1" && stickyCta.dataset.atSignup !== "1";
+      stickyCta.classList.toggle("show", show);
+    });
+  }, {threshold:0.05});
+  stickyIo.observe(heroSection);
+  stickyIo.observe(signupSection);
+}
+
+/* ======================================================
+   FORM SUBMISSION
+   ====================================================== */
+const form = document.getElementById("signupForm");
+const submitBtn = document.getElementById("submitBtn");
+const formMsg = document.getElementById("formMsg");
+
+function setMsg(text, type){
+  formMsg.textContent = text;
+  formMsg.className = "form-msg show " + type;
+}
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  formMsg.className = "form-msg";
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!selectedPlan){
+    document.getElementById("planError").classList.add("show");
+    document.getElementById("planSummary").scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+  document.getElementById("planError").classList.remove("show");
+
+  if (!fullName || !email || !phone){
+    setMsg(i18n[currentLang].form_error, "error");
+    return;
+  }
+
+  if (!sb){
+    setMsg(i18n[currentLang].form_error_config, "error");
+    return;
+  }
+
+  submitBtn.disabled = true;
+  const originalLabel = submitBtn.textContent;
+  submitBtn.textContent = i18n[currentLang].form_sending;
+
+  try {
+    const { error } = await sb.from("registrations").insert([{
+      full_name: fullName,
+      email: email,
+      phone: phone,
+      language: currentLang,
+      plan: selectedPlan,
+      plan_price: planMeta[selectedPlan].price,
+      status: "pending"
+    }]);
+
+    if (error) throw error;
+
+    setMsg(i18n[currentLang].form_success, "success");
+    form.reset();
+    selectedPlan = null;
+    document.querySelectorAll(".plan-card").forEach(c=>c.classList.remove("selected"));
+    document.querySelectorAll(".plan-chip").forEach(c=>c.classList.remove("active"));
+    refreshPlanTexts();
+  } catch (err){
+    console.error(err);
+    setMsg(i18n[currentLang].form_error, "error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
+  }
+});
+</script>
+</body>
+</html>

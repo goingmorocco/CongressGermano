@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tableau de bord — Inscriptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --blue-900:#0B2A5B;
+    --blue-700:#123A7A;
+    --blue-500:#1E56A8;
+    --blue-100:#EAF0FB;
+    --yellow:#FFC229;
+    --yellow-dark:#E8A800;
+    --ink:#16213A;
+    --gray:#6B7484;
+    --line:#E4E8F0;
+    --green:#1B7A3D;
+    --green-bg:#E7F6EC;
+    --red:#C1272D;
+    --red-bg:#FCEAEA;
+    --radius:16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter', system-ui, sans-serif; background:#F6F8FC; color:var(--ink); line-height:1.5;}
+  img,svg{display:block;}
+  button{font-family:inherit; cursor:pointer;}
+  input{font-family:inherit;}
+  a{color:inherit;}
+
+  /* ---------- LOGIN ---------- */
+  .login-wrap{
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+  }
+  .login-card{
+    background:var(--white); border-radius:24px; padding:40px 32px; width:100%; max-width:380px;
+    box-shadow:0 30px 60px -25px rgba(11,42,91,.25); text-align:center;
+  }
+  .login-logo{height:44px; width:auto; margin:0 auto 18px;}
+  .login-card h1{font-size:19px; font-weight:800; color:var(--blue-900); text-transform:uppercase; margin-bottom:6px; letter-spacing:.01em;}
+  .login-card p.sub{color:var(--gray); font-size:13.5px; margin-bottom:26px;}
+  .field{text-align:left; margin-bottom:14px;}
+  label{font-size:12.5px; font-weight:700; color:var(--blue-900); text-transform:uppercase; letter-spacing:.03em; margin-bottom:6px; display:block;}
+  input[type=email], input[type=password]{
+    width:100%; border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; font-size:15px; color:var(--ink);
+  }
+  input:focus{outline:none; border-color:var(--blue-500);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    background:var(--yellow); color:var(--blue-900); font-weight:800; font-size:14px;
+    padding:13px 20px; border-radius:999px; border:none; width:100%; margin-top:6px;
+    transition:background .15s, transform .15s;
+  }
+  .btn:hover{background:var(--yellow-dark); transform:translateY(-1px);}
+  .btn:disabled{opacity:.6; cursor:not-allowed; transform:none;}
+  .login-error{
+    background:var(--red-bg); color:var(--red); font-size:13px; font-weight:600;
+    padding:10px 14px; border-radius:10px; margin-top:14px; display:none;
+  }
+  .login-error.show{display:block;}
+
+  /* ---------- DASHBOARD ---------- */
+  #dashboard{display:none;}
+  header.topbar{
+    background:var(--white); border-bottom:1px solid var(--line);
+    padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    position:sticky; top:0; z-index:10; flex-wrap:wrap;
+  }
+  .topbar-brand{display:flex; align-items:center; gap:10px;}
+  .topbar-brand img{height:28px; width:auto;}
+  .topbar-brand span{font-weight:800; color:var(--blue-900); font-size:14px; text-transform:uppercase; letter-spacing:.02em;}
+  .topbar-right{display:flex; align-items:center; gap:12px; font-size:13px; color:var(--gray);}
+  .signout-btn{
+    background:var(--white); border:1.5px solid var(--line); color:var(--blue-900);
+    padding:8px 16px; border-radius:999px; font-size:12.5px; font-weight:700;
+  }
+  .signout-btn:hover{border-color:var(--blue-500);}
+
+  .wrap{max-width:920px; margin:0 auto; padding:28px 20px 80px;}
+
+  .stats-row{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px;}
+  .stat-card{background:var(--white); border:1.5px solid var(--line); border-radius:14px; padding:16px; text-align:center;}
+  .stat-card .num{font-size:26px; font-weight:900; color:var(--blue-900); line-height:1;}
+  .stat-card .lbl{font-size:11.5px; color:var(--gray); text-transform:uppercase; letter-spacing:.04em; margin-top:6px;}
+  @media(max-width:640px){.stats-row{grid-template-columns:repeat(2,1fr);}}
+
+  .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:18px;}
+  .tabs{display:flex; gap:6px; background:var(--blue-100); padding:4px; border-radius:999px; flex-wrap:wrap;}
+  .tab{background:transparent; border:none; padding:8px 14px; border-radius:999px; font-size:12.5px; font-weight:700; color:var(--blue-700);}
+  .tab.active{background:var(--blue-900); color:var(--white);}
+  .search-input{
+    flex:1; min-width:180px; border:1.5px solid var(--line); border-radius:999px; padding:9px 16px; font-size:13.5px;
+  }
+  .search-input:focus{outline:none; border-color:var(--blue-500);}
+  .refresh-btn{
+    background:var(--white); border:1.5px solid var(--line); border-radius:999px; padding:9px 14px;
+    font-size:12.5px; font-weight:700; color:var(--blue-900); display:flex; align-items:center; gap:6px;
+  }
+  .refresh-btn:hover{border-color:var(--blue-500);}
+  .refresh-btn svg{width:14px; height:14px;}
+  .refresh-btn.spinning svg{animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .empty-state{
+    text-align:center; padding:60px 20px; color:var(--gray); font-size:14px;
+  }
+
+  .reg-card{
+    background:var(--white); border:1.5px solid var(--line); border-radius:var(--radius);
+    padding:18px 20px; margin-bottom:12px; display:flex; flex-direction:column; gap:12px;
+  }
+  .reg-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .reg-name{font-weight:800; color:var(--blue-900); font-size:16px;}
+  .reg-date{font-size:12px; color:var(--gray); margin-top:2px;}
+  .status-badge{
+    font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em;
+    padding:5px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .status-badge.pending{background:#FFF4DB; color:#8A6100;}
+  .status-badge.approved{background:var(--green-bg); color:var(--green);}
+  .status-badge.rejected{background:var(--red-bg); color:var(--red);}
+
+  .reg-details{display:grid; grid-template-columns:repeat(2,1fr); gap:8px 20px; font-size:13.5px;}
+  @media(max-width:520px){.reg-details{grid-template-columns:1fr;}}
+  .reg-details .d-label{color:var(--gray); font-size:11px; text-transform:uppercase; letter-spacing:.03em; margin-bottom:2px;}
+  .reg-details .d-value{color:var(--ink); font-weight:600;}
+  .reg-details a{color:var(--blue-500); text-decoration:none;}
+  .reg-details a:hover{text-decoration:underline;}
+
+  .reg-actions{display:flex; gap:8px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:12px;}
+  .act-btn{
+    flex:1; min-width:110px; padding:10px 14px; border-radius:10px; font-size:12.5px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.02em; border:1.5px solid transparent;
+  }
+  .act-btn.approve{background:var(--green-bg); color:var(--green); border-color:var(--green-bg);}
+  .act-btn.approve:hover{background:var(--green); color:var(--white);}
+  .act-btn.reject{background:var(--red-bg); color:var(--red); border-color:var(--red-bg);}
+  .act-btn.reject:hover{background:var(--red); color:var(--white);}
+  .act-btn.pending-btn{background:var(--blue-100); color:var(--blue-700);}
+  .act-btn.pending-btn:hover{background:var(--blue-900); color:var(--white);}
+  .act-btn.current{opacity:.45; cursor:default; pointer-events:none;}
+  .act-btn:disabled{opacity:.5; cursor:wait;}
+
+  .loading-row{text-align:center; padding:40px; color:var(--gray); font-size:14px;}
+</style>
+</head>
+<body>
+
+<div class="login-wrap" id="loginScreen">
+  <div class="login-card">
+    <img class="login-logo" id="loginLogo" alt="Karriere Bruecke">
+    <h1>Tableau de bord</h1>
+    <p class="sub">Connectez-vous pour voir et gérer les inscriptions.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required autocomplete="username">
+      </div>
+      <div class="field">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn" id="loginBtn">Se connecter</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+  </div>
+</div>
+
+<div id="dashboard">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img id="topbarLogo" alt="Karriere Bruecke">
+      <span>Inscriptions — Congrès 2026</span>
+    </div>
+    <div class="topbar-right">
+      <span id="adminEmail"></span>
+      <button class="signout-btn" id="signOutBtn">Se déconnecter</button>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="stats-row">
+      <div class="stat-card"><div class="num" id="statAll">–</div><div class="lbl">Total</div></div>
+      <div class="stat-card"><div class="num" id="statPending">–</div><div class="lbl">En attente</div></div>
+      <div class="stat-card"><div class="num" id="statApproved">–</div><div class="lbl">Approuvées</div></div>
+      <div class="stat-card"><div class="num" id="statRejected">–</div><div class="lbl">Refusées</div></div>
+    </div>
+
+    <div class="controls">
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-filter="all">Toutes</button>
+        <button class="tab" data-filter="pending">En attente</button>
+        <button class="tab" data-filter="approved">Approuvées</button>
+        <button class="tab" data-filter="rejected">Refusées</button>
+      </div>
+      <input type="text" class="search-input" id="searchInput" placeholder="Rechercher un nom, e-mail…">
+      <button class="refresh-btn" id="refreshBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        Actualiser
+      </button>
+    </div>
+
+    <div id="listContainer">
+      <div class="loading-row">Chargement…</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = "https://luettzogwsbncbkyfhxd.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1ZXR0em9nd3NibmNia3lmaHhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMDk4NjcsImV4cCI6MjEwMTc4NTg2N30.AG6X8cS0-uTb9JZss7YTtH4DHhN6BvUO2GLCTXjJ4w0";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const LOGO_B64 = "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";
+document.getElementById("loginLogo").src = "data:image/png;base64," + LOGO_B64;
+document.getElementById("topbarLogo").src = "data:image/png;base64," + LOGO_B64;
+
+const loginScreen = document.getElementById("loginScreen");
+const dashboard = document.getElementById("dashboard");
+const loginForm = document.getElementById("loginForm");
+const loginBtn = document.getElementById("loginBtn");
+const loginError = document.getElementById("loginError");
+const adminEmailEl = document.getElementById("adminEmail");
+
+let allRows = [];
+let currentFilter = "all";
+let currentSearch = "";
+
+function showDashboard(session){
+  loginScreen.style.display = "none";
+  dashboard.style.display = "block";
+  adminEmailEl.textContent = session.user.email;
+  loadRegistrations();
+}
+function showLogin(){
+  loginScreen.style.display = "flex";
+  dashboard.style.display = "none";
+}
+
+sb.auth.getSession().then(({ data }) => {
+  if (data.session) showDashboard(data.session);
+  else showLogin();
+});
+
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  loginError.classList.remove("show");
+  loginBtn.disabled = true;
+  loginBtn.textContent = "Connexion…";
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  loginBtn.disabled = false;
+  loginBtn.textContent = "Se connecter";
+  if (error){
+    loginError.textContent = "E-mail ou mot de passe incorrect.";
+    loginError.classList.add("show");
+    return;
+  }
+  showDashboard(data.session);
+});
+
+document.getElementById("signOutBtn").addEventListener("click", async () => {
+  await sb.auth.signOut();
+  showLogin();
+});
+
+async function loadRegistrations(){
+  const container = document.getElementById("listContainer");
+  const refreshBtn = document.getElementById("refreshBtn");
+  refreshBtn.classList.add("spinning");
+  const { data, error } = await sb.from("registrations").select("*").order("created_at", { ascending:false });
+  refreshBtn.classList.remove("spinning");
+  if (error){
+    container.innerHTML = '<div class="loading-row">Erreur de chargement. Réessayez.</div>';
+    console.error(error);
+    return;
+  }
+  allRows = data || [];
+  updateStats();
+  render();
+}
+
+function updateStats(){
+  const counts = { all: allRows.length, pending:0, approved:0, rejected:0 };
+  allRows.forEach(r => { if (counts[r.status] !== undefined) counts[r.status]++; });
+  document.getElementById("statAll").textContent = counts.all;
+  document.getElementById("statPending").textContent = counts.pending;
+  document.getElementById("statApproved").textContent = counts.approved;
+  document.getElementById("statRejected").textContent = counts.rejected;
+}
+
+function render(){
+  const container = document.getElementById("listContainer");
+  let rows = allRows;
+  if (currentFilter !== "all") rows = rows.filter(r => r.status === currentFilter);
+  if (currentSearch.trim()){
+    const q = currentSearch.trim().toLowerCase();
+    rows = rows.filter(r =>
+      (r.full_name || "").toLowerCase().includes(q) ||
+      (r.email || "").toLowerCase().includes(q) ||
+      (r.phone || "").toLowerCase().includes(q)
+    );
+  }
+
+  if (rows.length === 0){
+    container.innerHTML = '<div class="empty-state">Aucune inscription à afficher pour le moment.</div>';
+    return;
+  }
+
+  const statusLabels = { pending:"En attente", approved:"Approuvée", rejected:"Refusée" };
+
+  container.innerHTML = rows.map(r => {
+    const date = r.created_at ? new Date(r.created_at).toLocaleString("fr-FR", { day:"2-digit", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" }) : "—";
+    const status = r.status || "pending";
+    const planLabel = r.plan ? (r.plan.charAt(0).toUpperCase() + r.plan.slice(1)) + (r.plan_price ? ` · ${r.plan_price}€` : "") : "—";
+    return `
+      <div class="reg-card" data-id="${r.id}">
+        <div class="reg-top">
+          <div>
+            <div class="reg-name">${escapeHtml(r.full_name || "—")}</div>
+            <div class="reg-date">Reçu le ${date}</div>
+          </div>
+          <span class="status-badge ${status}">${statusLabels[status] || status}</span>
+        </div>
+        <div class="reg-details">
+          <div><div class="d-label">E-mail</div><div class="d-value"><a href="mailto:${escapeAttr(r.email)}">${escapeHtml(r.email || "—")}</a></div></div>
+          <div><div class="d-label">Téléphone</div><div class="d-value"><a href="tel:${escapeAttr(r.phone)}">${escapeHtml(r.phone || "—")}</a></div></div>
+          <div><div class="d-label">Formule</div><div class="d-value">${escapeHtml(planLabel)}</div></div>
+          <div><div class="d-label">Langue</div><div class="d-value">${escapeHtml((r.language || "—").toUpperCase())}</div></div>
+        </div>
+        <div class="reg-actions">
+          <button class="act-btn pending-btn ${status==='pending' ? 'current' : ''}" data-action="pending">En attente</button>
+          <button class="act-btn approve ${status==='approved' ? 'current' : ''}" data-action="approved">Approuver</button>
+          <button class="act-btn reject ${status==='rejected' ? 'current' : ''}" data-action="rejected">Refuser</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  container.querySelectorAll(".act-btn:not(.current)").forEach(btn => {
+    btn.addEventListener("click", () => updateStatus(btn.closest(".reg-card").dataset.id, btn.dataset.action, btn));
+  });
+}
+
+async function updateStatus(id, newStatus, btnEl){
+  const card = btnEl.closest(".reg-card");
+  card.querySelectorAll(".act-btn").forEach(b => b.disabled = true);
+  const { error } = await sb.from("registrations").update({ status:newStatus }).eq("id", id);
+  if (error){
+    alert("Une erreur est survenue. Réessayez.");
+    console.error(error);
+    card.querySelectorAll(".act-btn").forEach(b => b.disabled = false);
+    return;
+  }
+  const row = allRows.find(r => r.id === id);
+  if (row) row.status = newStatus;
+  updateStats();
+  render();
+}
+
+document.getElementById("tabs").addEventListener("click", (e) => {
+  const btn = e.target.closest(".tab");
+  if (!btn) return;
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+  currentFilter = btn.dataset.filter;
+  render();
+});
+
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  currentSearch = e.target.value;
+  render();
+});
+
+document.getElementById("refreshBtn").addEventListener("click", loadRegistrations);
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+function escapeAttr(str){ return escapeHtml(str); }
+
+// Light auto-refresh so new sign-ups appear without a manual click
+setInterval(() => { if (dashboard.style.display !== "none") loadRegistrations(); }, 30000);
+</script>
+</body>
+</html>
