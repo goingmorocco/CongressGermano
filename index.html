@@ -255,19 +255,24 @@
   .marquee{
     background:var(--blue-900); overflow:hidden; padding:14px 0;
     border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08);
+    position:relative; z-index:1;
   }
   .marquee-track{
-    display:flex; white-space:nowrap; width:max-content;
-    animation:scrollLeft 26s linear infinite;
+    display:flex; white-space:nowrap; width:max-content; direction:ltr;
+    animation:scrollLeft 20s linear infinite;
+    -webkit-backface-visibility:hidden; backface-visibility:hidden;
+    transform:translateZ(0); will-change:transform;
   }
-  body[dir="rtl"] .marquee-track{animation:scrollRight 26s linear infinite;}
+  body[dir="rtl"] .marquee-track{animation:scrollRight 20s linear infinite;}
   @keyframes scrollLeft{from{transform:translateX(0);} to{transform:translateX(-50%);}}
   @keyframes scrollRight{from{transform:translateX(-50%);} to{transform:translateX(0);}}
   .marquee-item{
     color:var(--yellow); font-weight:800; font-size:14px; letter-spacing:.14em; text-transform:uppercase;
     padding:0 22px; display:flex; align-items:center; gap:22px;
   }
+  .marquee-item:empty{display:none;}
   .marquee-item::after{content:"•"; color:rgba(255,255,255,.3); margin-inline-start:22px;}
+  .marquee-item:empty::after{content:none;}
 
   /* ---------- REVEAL ---------- */
   .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease;}
@@ -655,10 +660,14 @@
     <span class="marquee-item" data-i18n="marquee_2">Your recognition</span>
     <span class="marquee-item" data-i18n="marquee_3">Your integration</span>
     <span class="marquee-item" data-i18n="marquee_4">Your future</span>
+    <span class="marquee-item" data-i18n="marquee_5"></span>
+    <span class="marquee-item" data-i18n="marquee_6"></span>
     <span class="marquee-item" data-i18n="marquee_1">Your training</span>
     <span class="marquee-item" data-i18n="marquee_2">Your recognition</span>
     <span class="marquee-item" data-i18n="marquee_3">Your integration</span>
     <span class="marquee-item" data-i18n="marquee_4">Your future</span>
+    <span class="marquee-item" data-i18n="marquee_5"></span>
+    <span class="marquee-item" data-i18n="marquee_6"></span>
   </div>
 </div>
 
@@ -1147,7 +1156,7 @@ fr: {
   hero_cta:"Réservez votre place", hero_cta2:"Voir ce qui vous attend",
   hero_urgency:"Les candidatures sont examinées au fil de l'eau — plus vous postulez tôt, plus vite vous êtes dans la salle.",
   cd_days:"Jours", cd_hours:"Heures", cd_mins:"Minutes", cd_secs:"Secondes",
-  marquee_1:"Votre formation", marquee_2:"Votre reconnaissance", marquee_3:"Votre intégration", marquee_4:"Votre avenir",
+  marquee_1:"Votre formation", marquee_2:"Votre reconnaissance", marquee_3:"Votre intégration", marquee_4:"Votre avenir", marquee_5:"", marquee_6:"",
   about_eyebrow:"Pourquoi ce congrès", about_title:"Ce n'est pas un salon de l'emploi comme les autres",
   about_float:"Aucun frais caché. Aucune fausse promesse. Juste un processus clair et transparent.",
   about_p1:"Vous n'avez pas passé des années à construire vos compétences pour continuer à envoyer des CV dans le vide. Le Congrès professionnel Germano-Marocain 2026 vous met dans la même salle que les personnes qui peuvent réellement faire avancer les choses — employeurs allemands, experts en reconnaissance et établissements de formation, tous à Casablanca, le 01 octobre.",
@@ -1244,7 +1253,7 @@ de: {
   hero_cta:"Jetzt Platz sichern", hero_cta2:"Was Sie erwartet",
   hero_urgency:"Bewerbungen werden laufend geprüft — je früher Sie sich bewerben, desto früher sind Sie im Raum.",
   cd_days:"Tage", cd_hours:"Stunden", cd_mins:"Minuten", cd_secs:"Sekunden",
-  marquee_1:"Ihre Ausbildung", marquee_2:"Ihre Anerkennung", marquee_3:"Ihre Integration", marquee_4:"Ihre Zukunft",
+  marquee_1:"Ihre Ausbildung", marquee_2:"Ihre Anerkennung", marquee_3:"Ihre Integration", marquee_4:"Ihre Zukunft", marquee_5:"", marquee_6:"",
   about_eyebrow:"Warum es das gibt", about_title:"Das ist keine gewöhnliche Jobmesse",
   about_float:"Keine versteckten Kosten. Keine falschen Versprechen. Nur ein klarer, transparenter Prozess.",
   about_p1:"Sie haben nicht jahrelang an Ihren Fähigkeiten gearbeitet, um Bewerbungen ins Leere zu schicken. Der Deutsch–Marokkanische Berufskongress 2026 bringt Sie in denselben Raum wie die Menschen, die tatsächlich etwas bewegen können — deutsche Arbeitgeber, Anerkennungsexperten und Ausbildungseinrichtungen, am 01. Oktober, nur in Casablanca.",
@@ -1341,7 +1350,7 @@ ar: {
   hero_cta:"احجز المكان ديالك دابا", hero_cta2:"شوف أش كاين",
   hero_urgency:"الطلبات كيتفحصو أولا بأول — كلما سجلتي بكري كلما دخلتي بكري.",
   cd_days:"نهار", cd_hours:"ساعة", cd_mins:"دقيقة", cd_secs:"ثانية",
-  marquee_1:"التكوين ديالك", marquee_2:"الاعتراف ديالك", marquee_3:"الاندماج ديالك", marquee_4:"المستقبل ديالك",
+  marquee_1:"فرص تدريب في ألمانيا", marquee_2:"فرص عمل في ألمانيا", marquee_3:"مقابلات شخصية", marquee_4:"التحقق من الملفات", marquee_5:"وسطاء توظيف ألمانيين", marquee_6:"بيئة مريحة",
   about_eyebrow:"علاش كاين هاد المؤتمر", about_title:"هذا ماشي غير مجرد معرض، هذا المستقبل ديالك",
   about_float:"بلا مصاريف مخبية. بلا وعود كاذبة. غير مسار واضح وشفاف.",
   about_p1:"المؤتمر المهني الألماني المغربي 2026 جاب ليك الفرصة باش تجلس وجهاً لوجه مع صناع القرار الألمان، خبراء معادلة الشواهد، ومؤسسات التكوين — <strong>نهار 01 أكتوبر بالدار البيضاء.</strong>",
