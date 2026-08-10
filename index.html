@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Congrès professionnel Germano-Marocain 2026 — Karriere Bruecke International</title>
+<title>المؤتمر المهني الألماني المغربي 2026 — Karriere Bruecke International</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -628,7 +628,7 @@
   :focus-visible{outline:3px solid var(--blue-500); outline-offset:2px;}
 </style>
 </head>
-<body dir="ltr">
+<body dir="rtl">
 
 <header>
   <div class="nav">
@@ -645,9 +645,9 @@
     </nav>
     <div class="nav-right">
       <div class="lang-switch" role="group" aria-label="Language">
-        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="fr">FR</button>
         <button data-lang="de">DE</button>
-        <button data-lang="ar">عربية</button>
+        <button data-lang="ar" class="active">عربية</button>
       </div>
       <a href="#signup" class="btn nav-cta" data-i18n="nav_cta">Sign up</a>
     </div>
@@ -1133,8 +1133,8 @@
 /* ======================================================
    SUPABASE CONFIG — replace with your project's values
    ====================================================== */
-const SUPABASE_URL = "https://esblfjiknwefhdjpovhg.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVzYmxmamlrbndlZmhkanBvdmhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxMzA0NDksImV4cCI6MjEwMTcwNjQ0OX0.L2pmQ2Zj_faFcLBqyqNEh0j7NY9GplatpS8HD9Md2ks";
+const SUPABASE_URL = "https://luettzogwsbncbkyfhxd.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1ZXR0em9nd3NibmNia3lmaHhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMDk4NjcsImV4cCI6MjEwMTc4NTg2N30.AG6X8cS0-uTb9JZss7YTtH4DHhN6BvUO2GLCTXjJ4w0";
 let sb = null;
 try {
   if (SUPABASE_URL.startsWith("http")) {
@@ -1520,7 +1520,7 @@ document.getElementById("planScrollLink").addEventListener("click", ()=>{
   document.getElementById("pricing").scrollIntoView({behavior:"smooth", block:"start"});
 });
 
-let currentLang = "fr";
+let currentLang = "ar";
 
 function applyLang(lang){
   currentLang = lang;
@@ -1539,6 +1539,12 @@ function applyLang(lang){
     document.body.setAttribute("dir","ltr");
     document.body.setAttribute("lang", lang);
   }
+  const pageTitles = {
+    fr:"Congrès professionnel Germano-Marocain 2026 — Karriere Bruecke International",
+    de:"Deutsch-Marokkanischer Berufskongress 2026 — Karriere Bruecke International",
+    ar:"المؤتمر المهني الألماني المغربي 2026 — Karriere Bruecke International"
+  };
+  document.title = pageTitles[lang] || pageTitles.ar;
   localStorage.setItem("congress_lang", lang);
   refreshPlanTexts();
 }
@@ -1549,7 +1555,7 @@ document.querySelectorAll(".lang-switch button").forEach(btn=>{
 
 updatePlanAvailability();
 const savedLang = localStorage.getItem("congress_lang");
-applyLang(savedLang && i18n[savedLang] ? savedLang : "fr");
+applyLang(savedLang && i18n[savedLang] ? savedLang : "ar");
 
 /* ======================================================
    SCROLL REVEAL
