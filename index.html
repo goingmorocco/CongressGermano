@@ -159,6 +159,10 @@
     opacity:0; transform:translateY(18px);
     animation:riseIn .8s ease .15s forwards;
   }
+  body[lang="fr"] .hero h1, body[lang="de"] .hero h1{
+    font-size:clamp(24px, 6.4vw, 46px);
+    line-height:1.2;
+  }
   .hero h1 .hl{color:var(--yellow);}
   .hero .lede{
     color:rgba(255,255,255,.88); font-size:18px;
@@ -628,6 +632,23 @@
 
   :focus-visible{outline:3px solid var(--blue-500); outline-offset:2px;}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1015814088117647');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1015814088117647&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body dir="rtl">
 
@@ -952,6 +973,78 @@
   </div>
 </section>
 
+<div class="cta-band reveal">
+  <div class="wrap cta-band-inner">
+    <p data-i18n="cta5_text">All the details are here. All that's missing is your application.</p>
+    <a href="#signup" class="btn" data-i18n="band_cta">Book your seat</a>
+  </div>
+</div>
+
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="signup-inner reveal">
+      <div class="signup-info">
+        <span class="eyebrow" data-i18n="signup_eyebrow">Registration</span>
+        <h2 data-i18n="signup_title">This is your move</h2>
+        <p class="lede" style="margin-bottom:10px;" data-i18n="signup_sub">Somewhere in that room could be the employer who's been looking for exactly your profile. The only way to find out is to be there.</p>
+        <p style="margin-bottom:26px; font-size:14px; color:var(--gray); font-weight:600;" data-i18n="signup_reassure">Applying is free and takes a minute. You only pay once your application is approved.</p>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <p><strong data-i18n="step1_t">Submit your details</strong><span data-i18n="step1_d">Full name, email and phone number — takes less than a minute.</span></p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p><strong data-i18n="step2_t">We review your application</strong><span data-i18n="step2_d">Our team checks your profile against the congress focus areas.</span></p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p><strong data-i18n="step3_t">We contact you</strong><span data-i18n="step3_d">Once approved, we'll reach out to confirm your spot and arrange payment.</span></p>
+        </div>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <div class="plan-summary" id="planSummary">
+          <div class="plan-summary-text">
+            <strong id="planSummaryName" data-i18n="signup_plan_none">No plan selected yet — choose one below</strong>
+            <span id="planSummaryDetail"></span>
+          </div>
+          <button type="button" class="plan-summary-link" id="planScrollLink" data-i18n="signup_plan_view">View plans</button>
+        </div>
+        <div class="plan-chips" id="planChips">
+          <button type="button" class="plan-chip" data-plan="earlybird" id="chipEarlybird">Early Bird · 149€</button>
+          <button type="button" class="plan-chip" data-plan="standard" id="chipStandard">Standard · 199€</button>
+          <button type="button" class="plan-chip" data-plan="premium" id="chipPremium">Premium · 249€</button>
+        </div>
+        <span class="field-error" id="planError" data-i18n="form_plan_required_error">Please select a ticket plan before submitting.</span>
+
+        <div class="field">
+          <label for="fullName" data-i18n="form_name">Full name</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email" data-i18n="form_email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone" data-i18n="form_phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+212 6 12 34 56 78" dir="ltr" style="text-align:left;">
+        </div>
+        <div class="field">
+          <label for="city" data-i18n="form_city">City</label>
+          <input type="text" id="city" name="city" required autocomplete="address-level2">
+        </div>
+        <label class="consent">
+          <input type="checkbox" id="consent" required>
+          <span data-i18n="form_consent">I agree that my details will be stored and used by Karriere Bruecke International to process my application for this congress.</span>
+        </label>
+        <button type="submit" class="btn submit-btn" id="submitBtn" data-i18n="form_submit">Submit application</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section id="practical" style="background:var(--blue-100)80">
   <div class="wrap">
     <div class="section-head reveal">
@@ -1021,78 +1114,6 @@
   </div>
 </section>
 
-<div class="cta-band reveal">
-  <div class="wrap cta-band-inner">
-    <p data-i18n="cta5_text">All the details are here. All that's missing is your application.</p>
-    <a href="#pricing" class="btn" data-i18n="band_cta">Book your seat</a>
-  </div>
-</div>
-
-<section id="signup" class="signup">
-  <div class="wrap">
-    <div class="signup-inner reveal">
-      <div class="signup-info">
-        <span class="eyebrow" data-i18n="signup_eyebrow">Registration</span>
-        <h2 data-i18n="signup_title">This is your move</h2>
-        <p class="lede" style="margin-bottom:10px;" data-i18n="signup_sub">Somewhere in that room could be the employer who's been looking for exactly your profile. The only way to find out is to be there.</p>
-        <p style="margin-bottom:26px; font-size:14px; color:var(--gray); font-weight:600;" data-i18n="signup_reassure">Applying is free and takes a minute. You only pay once your application is approved.</p>
-
-        <div class="step">
-          <div class="step-num">1</div>
-          <p><strong data-i18n="step1_t">Submit your details</strong><span data-i18n="step1_d">Full name, email and phone number — takes less than a minute.</span></p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <p><strong data-i18n="step2_t">We review your application</strong><span data-i18n="step2_d">Our team checks your profile against the congress focus areas.</span></p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <p><strong data-i18n="step3_t">We contact you</strong><span data-i18n="step3_d">Once approved, we'll reach out to confirm your spot and arrange payment.</span></p>
-        </div>
-      </div>
-
-      <form id="signupForm" novalidate>
-        <div class="plan-summary" id="planSummary">
-          <div class="plan-summary-text">
-            <strong id="planSummaryName" data-i18n="signup_plan_none">No plan selected yet — choose one below</strong>
-            <span id="planSummaryDetail"></span>
-          </div>
-          <button type="button" class="plan-summary-link" id="planScrollLink" data-i18n="signup_plan_view">View plans</button>
-        </div>
-        <div class="plan-chips" id="planChips">
-          <button type="button" class="plan-chip" data-plan="earlybird" id="chipEarlybird">Early Bird · 149€</button>
-          <button type="button" class="plan-chip" data-plan="standard" id="chipStandard">Standard · 199€</button>
-          <button type="button" class="plan-chip" data-plan="premium" id="chipPremium">Premium · 249€</button>
-        </div>
-        <span class="field-error" id="planError" data-i18n="form_plan_required_error">Please select a ticket plan before submitting.</span>
-
-        <div class="field">
-          <label for="fullName" data-i18n="form_name">Full name</label>
-          <input type="text" id="fullName" name="fullName" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email" data-i18n="form_email">Email address</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="phone" data-i18n="form_phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+212 6 12 34 56 78" dir="ltr" style="text-align:left;">
-        </div>
-        <div class="field">
-          <label for="city" data-i18n="form_city">City</label>
-          <input type="text" id="city" name="city" required autocomplete="address-level2">
-        </div>
-        <label class="consent">
-          <input type="checkbox" id="consent" required>
-          <span data-i18n="form_consent">I agree that my details will be stored and used by Karriere Bruecke International to process my application for this congress.</span>
-        </label>
-        <button type="submit" class="btn submit-btn" id="submitBtn" data-i18n="form_submit">Submit application</button>
-        <div class="form-msg" id="formMsg"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -1150,36 +1171,36 @@ const i18n = {
 fr: {
   brand:"Congrès professionnel Germano-Marocain",
   nav_about:"À propos", nav_partners:"Partenaires", nav_practical:"Infos pratiques", nav_venue:"Le lieu", nav_cta:"S'inscrire",
-  hero_eyebrow:"Inscriptions ouvertes",
-  hero_title:"Vos compétences vous ont menés jusqu'ici. <span class=\"hl\">Voici comment aller plus loin.</span>",
-  hero_sub:"Arrêtez d'envoyer des CV dans le vide. Rencontrez les employeurs allemands, les partenaires de formation et les experts en reconnaissance qui peuvent vraiment faire avancer votre carrière — en face à face, à Casablanca, le 01 octobre.",
+  hero_eyebrow:"Inscriptions ouvertes maintenant",
+  hero_title:"Vous avez réussi votre allemand ? Parfait ! Voici venu le moment de <span class=\"hl\">décrocher un contrat de travail ou de formation en Allemagne</span>.",
+  hero_sub:"Arrêtez d'envoyer des candidatures à des dizaines d'entreprises allemandes pour un contrat de travail — ce sont elles qui viendront à vous. Le Congrès professionnel Germano-Marocain vous offre l'opportunité de rencontrer des employeurs allemands et d'obtenir un contrat de travail avec eux.",
   hero_badge_dates:"01 Oct 2026", hero_badge_location:"Casablanca · New Hotel",
-  hero_cta:"Réservez votre place", hero_cta2:"Voir ce qui vous attend",
-  hero_urgency:"Les candidatures sont examinées au fil de l'eau — plus vous postulez tôt, plus vite vous êtes dans la salle.",
+  hero_cta:"Réservez votre place maintenant", hero_cta2:"Informations sur le congrès",
+  hero_urgency:"Les candidatures sont examinées au fil de l'eau — plus vous vous inscrivez tôt, plus vite vous serez accepté.",
   cd_days:"Jours", cd_hours:"Heures", cd_mins:"Minutes", cd_secs:"Secondes",
-  marquee_1:"Votre formation", marquee_2:"Votre reconnaissance", marquee_3:"Votre intégration", marquee_4:"Votre avenir", marquee_5:"", marquee_6:"",
-  about_eyebrow:"Pourquoi ce congrès", about_title:"Ce n'est pas un salon de l'emploi comme les autres",
-  about_float:"Aucun frais caché. Aucune fausse promesse. Juste un processus clair et transparent.",
-  about_p1:"Vous n'avez pas passé des années à construire vos compétences pour continuer à envoyer des CV dans le vide. Le Congrès professionnel Germano-Marocain 2026 vous met dans la même salle que les personnes qui peuvent réellement faire avancer les choses — employeurs allemands, experts en reconnaissance et établissements de formation, tous à Casablanca, le 01 octobre.",
-  about_p2:"Ce n'est pas un événement de réseautage vague. C'est un processus structuré et sérieux : de vraies conversations, de vraies exigences, de vraies prochaines étapes — organisé par Karriere Bruecke International, sans aucune promesse qui ne pourrait pas être tenue.",
-  about_p2_b1:"", about_p2_b2:"", about_p2_b3:"",
-  about_quote:"« Vous apportez les compétences. Nous apportons la salle où elles sont enfin remarquées. »",
-  objectives_eyebrow:"Ce que vous gagnez", objectives_title:"Ce que vous en retirerez",
-  obj_1_t:"Savoir exactement où vous en êtes", obj_1_d:"Obtenez des réponses précises sur la formation, la reconnaissance et le niveau de langue dont vous avez besoin — fini les suppositions sur les forums.",
-  obj_2_t:"Parler aux décideurs, pas aux intermédiaires", obj_2_d:"Asseyez-vous face aux organisations allemandes qui recrutent et forment vraiment en ce moment — pas un recruteur à trois intermédiaires de distance.",
-  obj_3_t:"Voir le vrai parcours de formation", obj_3_d:"Les établissements marocains vous montrent de vrais programmes, des équipements réels et à quoi ressemble vraiment la formation au quotidien — pas une brochure.",
-  obj_4_t:"Ne plus être un nom dans une pile de CV", obj_4_d:"Les employeurs allemands repartent avec une image claire de vos qualifications et de votre potentiel — parce que vous le leur avez montré vous-même.",
-  obj_5_t:"Être protégé des fausses promesses", obj_5_d:"Chaque organisation présente ici respecte des principes de recrutement transparents et équitables. Aucun frais caché, aucune fausse garantie.",
-  obj_6_t:"Repartir avec une prochaine étape, pas juste une carte de visite", obj_6_d:"Un plan de suivi documenté pour que votre élan ne s'arrête pas à la fin du congrès.",
-  audiences_eyebrow:"Vérifiez par vous-même", audiences_title:"Est-ce votre moment ?",
-  audiences_banner:"Si vous lisez ceci, il y a de bonnes chances que l'une de ces descriptions vous corresponde.",
-  aud_de_title:"Vous recrutez en Allemagne",
-  aud_de_1:"Vous dirigez les RH, le recrutement ou un programme de formation", aud_de_2:"Vous avez besoin de personnes qualifiées, pas seulement de candidatures", aud_de_3:"Vous gérez l'intégration et l'accueil des nouveaux employés", aud_de_4:"Vous travaillez dans un organisme de reconnaissance ou de qualification", aud_de_5:"Vous représentez une caisse d'assurance maladie ou la protection sociale",
-  aud_ma_title:"Vous formez la prochaine génération",
-  aud_ma_1:"Vous dirigez une école, un institut ou un centre de formation", aud_ma_2:"Vous représentez une université ou un établissement d'enseignement supérieur", aud_ma_3:"Vous enseignez la langue ou des programmes de préparation", aud_ma_4:"Vous dirigez une association ou une fédération professionnelle", aud_ma_5:"Vous travaillez dans l'emploi ou l'orientation professionnelle",
-  aud_cand_title:"Vous êtes prêt à franchir le pas",
-  aud_cand_1:"Vous êtes qualifié ou récemment diplômé et voulez aller plus loin", aud_cand_2:"Vous envisagez une formation professionnelle (Ausbildung) en Allemagne", aud_cand_3:"Vous êtes déjà dans une procédure de reconnaissance et avez besoin d'y voir clair", aud_cand_4:"Vous voulez un véritable entretien, pas un « peut-être » de plus",
-  partners_eyebrow:"Intervenants & partenaires", partners_title:"Les personnes à qui vous parlerez vraiment",
+  marquee_1:"Opportunités de formation en Allemagne", marquee_2:"Opportunités d'emploi en Allemagne", marquee_3:"Entretiens individuels", marquee_4:"Vérification des dossiers", marquee_5:"Intermédiaires de recrutement allemands", marquee_6:"Environnement convivial",
+  about_eyebrow:"Pourquoi ce congrès", about_title:"Ce n'est pas juste un salon, c'est votre avenir",
+  about_float:"Aucun frais caché. Aucune fausse promesse. Juste un parcours clair et transparent.",
+  about_p1:"Le Congrès professionnel Germano-Marocain 2026 vous donne l'occasion de rencontrer face à face des décideurs allemands, des experts en équivalence des diplômes et des établissements de formation — <strong>le 01 octobre à Casablanca.</strong>",
+  about_p2:"Ce n'est pas un simple événement de réseautage, c'est une rencontre concrète et directe qui vous offre :",
+  about_p2_b1:"Des entretiens avec des employeurs allemands", about_p2_b2:"Un accompagnement complet pour bien préparer votre dossier", about_p2_b3:"Une vraie chance d'obtenir un contrat de formation ou de travail qui vous ouvre la voie vers l'Allemagne",
+  about_quote:"« Vous avez parcouru un long chemin d'études et de travail, voici venu le moment de saisir une opportunité de formation ou d'emploi en Allemagne »",
+  objectives_eyebrow:"Ce que vous gagnez", objectives_title:"Ce que vous allez retirer du salon professionnel Germano-Marocain",
+  obj_1_t:"Savoir exactement où vous en êtes", obj_1_d:"Des réponses à toutes vos questions sur votre dossier, la vie et le travail en Allemagne, ou toute autre question professionnelle, directement auprès d'experts allemands.",
+  obj_2_t:"Un entretien face à face avec les décideurs", obj_2_d:"Vous vous assiérez directement face aux employeurs et leur présenterez vos compétences afin d'obtenir un contrat de formation ou de travail.",
+  obj_3_t:"Découvrir le vrai parcours de la formation professionnelle en Allemagne", obj_3_d:"Vous obtiendrez toutes les informations nécessaires sur l'étape de la formation professionnelle en Allemagne avant de commencer à travailler, pour garantir de meilleures chances de réussite.",
+  obj_4_t:"Un accompagnement complet pour préparer votre dossier", obj_4_d:"Ce n'est pas seulement un CV dont vous aurez besoin, mais un dossier complet qui respecte les conditions de formation et de travail en Allemagne. Nous vous aiderons à vérifier si votre dossier est complet.",
+  obj_5_t:"Être protégé des fausses promesses", obj_5_d:"Chaque organisation ici respecte des principes de recrutement transparents et équitables. Aucun frais caché, aucune fausse garantie.",
+  obj_6_t:"Repartir avec un plan complet, pas seulement des conseils", obj_6_d:"À la fin du congrès, vous aurez un plan clair de ce qu'il faut faire ensuite et des étapes à suivre jusqu'à votre arrivée en Allemagne.",
+  audiences_eyebrow:"Vérifiez par vous-même", audiences_title:"Ce salon professionnel Germano-Marocain est-il fait pour vous ?",
+  audiences_banner:"Si vous lisez ceci, il y a de grandes chances que l'un de ces objectifs vous concerne.",
+  aud_de_title:"Vous vous intéressez à un programme de formation professionnelle (Ausbildung) et vous voulez :",
+  aud_de_1:"Rencontrer directement des entreprises allemandes", aud_de_2:"Obtenir un contrat de formation ou de travail", aud_de_3:"En savoir plus sur le parcours de formation", aud_de_4:"Vérifier que votre dossier est complet", aud_de_5:"",
+  aud_ma_title:"Vous avez de l'expérience professionnelle et vous voulez :",
+  aud_ma_1:"Rencontrer des entreprises et employeurs allemands face à face", aud_ma_2:"Obtenir un contrat de travail en Allemagne", aud_ma_3:"Connaître les conditions d'embauche en Allemagne", aud_ma_4:"Vérifier que votre dossier professionnel est complet", aud_ma_5:"Obtenir des réponses aux questions qui vous préoccupent",
+  aud_cand_title:"Vous êtes étudiant et pensez poursuivre vos études en Allemagne, vous voulez :",
+  aud_cand_1:"Connaître les conditions d'études en Allemagne", aud_cand_2:"Découvrir les métiers recherchés en Allemagne", aud_cand_3:"Obtenir une orientation de la part d'intermédiaires allemands", aud_cand_4:"Découvrir des établissements marocains ayant des liens avec des employeurs allemands",
+  partners_eyebrow:"Intervenants & partenaires", partners_title:"Qui vous allez rencontrer et avec qui vous allez échanger",
   partners_note:"Liste des intervenants et statut des partenaires sous réserve de confirmation finale par l'organisateur.",
   partner_karriere_desc:"Organisateur du congrès — coordonne participants, partenaires, intervenants et exposants.",
   partner_asghar_desc:"Basée à Hambourg, plus de 20 ans d'expérience sur le marché du travail, organisme de formation certifié AZAV.",
@@ -1191,21 +1212,21 @@ fr: {
   partner_sirius_desc:"Accompagnement des professionnels de santé à l'international : opportunités, langue, reconnaissance et intégration.",
   partner_eemsi_desc:"École partenaire marocaine à Meknès, qui forme la nouvelle génération de professionnels de santé.",
   band_cta:"Réservez votre place",
-  cta1_text:"Vous avez lu jusqu'ici. Le prochain pas, c'est vous qui le faites.",
-  cta2_text:"Six raisons d'y être. Une seule façon de commencer : s'inscrire.",
-  cta3_text:"Vous vous reconnaissez dans l'un de ces profils ? Ne restez pas spectateur.",
-  cta4_text:"Ces organisations seront dans la salle. Vous aussi ?",
-  cta5_text:"Toutes les infos sont là. Il ne manque que votre inscription.",
+  cta1_text:"L'inscription ne prend que quelques secondes. Réservez votre place maintenant.",
+  cta2_text:"Six raisons d'être présent. Une seule façon de commencer : inscrivez-vous.",
+  cta3_text:"Vous vous reconnaissez dans l'un de ces profils ? Alors ce congrès est fait pour vous.",
+  cta4_text:"Ces organisations seront présentes dans la salle. Et vous, serez-vous là ?",
+  cta5_text:"Vous avez maintenant toutes les informations, il ne vous reste plus qu'à vous inscrire et réserver votre place",
   nav_pricing:"Tarifs",
   pricing_eyebrow:"Billets", pricing_title:"Réservez votre place",
-  pricing_sub:"Chaque formule vous donne un accès complet à la journée du congrès. La seule question est : combien d'accès supplémentaires voulez-vous — et à quelle vitesse allez-vous agir.",
+  pricing_sub:"Chaque formule vous donne un accès complet à la journée du congrès. Plus vous réservez votre place tôt, moins vous payez. Le prix augmentera à partir du mois de septembre.",
   pricing_urgency:"Les places sont limitées et les candidatures sont examinées au fil de l'eau.",
   plan_earlybird_badge:"Meilleur prix", plan_earlybird_name:"Early Bird", plan_earlybird_deadline:"Réservez avant le 31 août 2026", plan_earlybird_closed:"Inscriptions closes",
   plan_standard_badge:"Recommandé", plan_standard_name:"Standard", plan_standard_deadline:"Réservez avant le 30 septembre 2026", plan_standard_notyet:"Ouvre le 1er septembre 2026",
   plan_premium_badge:"Professionnels & étudiants", plan_premium_name:"Premium", plan_premium_deadline:"Pour les professionnels/étudiants en santé et physiothérapie",
-  plan_premium_note:"Exclusivement pour le personnel soignant, les physiothérapeutes, ainsi que les élèves/étudiants et professionnels souhaitant travailler en Allemagne. Pas pour les employeurs ou les partenaires officiels.",
+  plan_premium_note:"",
   feat_congress:"Accès à la journée complète du congrès", feat_networking:"Sessions de networking", feat_docs:"Documents de conférence", feat_catering:"Pauses café & déjeuner", feat_certificate:"Certificat de participation",
-  feat_speeddating_std:"Speed-dating avec les employeurs possible en seconde priorité — après les places Premium, sans garantie",
+  feat_speeddating_std:"Rencontre Speed-dating avec les employeurs (après la fin des entretiens des participants de la formule Premium)",
   feat_speeddating_premium:"Accès garanti et prioritaire au speed-dating avec les employeurs",
   plan_cta:"Réserver maintenant",
   signup_plan_none:"Aucune formule sélectionnée pour l'instant — choisissez-en une ci-dessous",
@@ -1213,7 +1234,7 @@ fr: {
   signup_plan_selected:"Formule sélectionnée",
   form_plan_required_error:"Veuillez sélectionner une formule avant de valider.",
   practical_eyebrow:"Bon à savoir", practical_title:"Informations pratiques",
-  cta_venue_pre:"Un cadre professionnel, une ambiance chaleureuse. Voici où tout se passe.",
+  cta_venue_pre:"Un environnement confortable et une ambiance chaleureuse : c'est ici que nous nous retrouverons, et c'est d'ici que votre avenir prendra son envol.",
   venue_eyebrow:"Le lieu", venue_title:"New Hotel Casablanca",
   venue_desc:"Le congrès se déroule dans un cadre moderne et confortable, pensé pour les rencontres professionnelles — équipé pour les ateliers, les conférences et les échanges B2B.",
   venue_caption_1:"Ateliers pratiques et démonstrations métier",
@@ -1226,7 +1247,7 @@ fr: {
   pr_dossier_l:"Dossier de candidature", pr_dossier_v:"CV, diplômes, attestations et justificatifs linguistiques, selon la demande de l'organisateur",
   pr_price_l:"Frais de participation", pr_price_v:"Communiqués individuellement une fois votre candidature approuvée",
   signup_eyebrow:"Inscription", signup_title:"C'est à vous de jouer",
-  signup_sub:"Quelque part dans cette salle se trouve peut-être l'employeur qui recherche exactement votre profil. La seule façon de le savoir, c'est d'y être.",
+  signup_sub:"Les employeurs allemands recherchent peut-être exactement votre profil. La seule façon de le savoir, c'est d'être présent avec eux.",
   signup_reassure:"La candidature est gratuite et prend une minute. Vous ne payez qu'une fois votre candidature approuvée.",
   step1_t:"Envoyez vos informations", step1_d:" Nom complet, e-mail et numéro de téléphone — moins d'une minute.",
   step2_t:"Nous examinons votre candidature", step2_d:" Notre équipe vérifie votre profil par rapport aux axes du congrès.",
@@ -1248,35 +1269,35 @@ de: {
   brand:"Deutsch-Marokkanischer Berufskongress",
   nav_about:"Über uns", nav_partners:"Partner", nav_practical:"Praktische Infos", nav_venue:"Der Ort", nav_cta:"Anmelden",
   hero_eyebrow:"Bewerbungen jetzt offen",
-  hero_title:"Ihre Qualifikation hat Sie bis hierher gebracht. <span class=\"hl\">So geht es weiter.</span>",
-  hero_sub:"Schluss mit Bewerbungen ins Leere. Treffen Sie die deutschen Arbeitgeber, Ausbildungspartner und Anerkennungsexperten, die Ihre Karriere wirklich voranbringen können — persönlich, in Casablanca, am 01. Oktober.",
+  hero_title:"Sie haben Ihr Deutsch erfolgreich bestanden? Großartig! Jetzt ist der Moment gekommen, <span class=\"hl\">einen Arbeits- oder Ausbildungsvertrag in Deutschland zu bekommen</span>.",
+  hero_sub:"Hören Sie auf, Dutzende deutsche Unternehmen wegen eines Arbeitsvertrags anzuschreiben — sie werden zu Ihnen kommen. Der Deutsch-Marokkanische Berufskongress bietet Ihnen die Gelegenheit, deutsche Arbeitgeber zu treffen und einen Arbeitsvertrag mit ihnen abzuschließen.",
   hero_badge_dates:"01. Okt. 2026", hero_badge_location:"Casablanca · New Hotel",
-  hero_cta:"Jetzt Platz sichern", hero_cta2:"Was Sie erwartet",
-  hero_urgency:"Bewerbungen werden laufend geprüft — je früher Sie sich bewerben, desto früher sind Sie im Raum.",
+  hero_cta:"Jetzt Platz sichern", hero_cta2:"Infos zum Kongress",
+  hero_urgency:"Bewerbungen werden laufend geprüft — je früher Sie sich anmelden, desto früher werden Sie angenommen.",
   cd_days:"Tage", cd_hours:"Stunden", cd_mins:"Minuten", cd_secs:"Sekunden",
-  marquee_1:"Ihre Ausbildung", marquee_2:"Ihre Anerkennung", marquee_3:"Ihre Integration", marquee_4:"Ihre Zukunft", marquee_5:"", marquee_6:"",
-  about_eyebrow:"Warum es das gibt", about_title:"Das ist keine gewöhnliche Jobmesse",
-  about_float:"Keine versteckten Kosten. Keine falschen Versprechen. Nur ein klarer, transparenter Prozess.",
-  about_p1:"Sie haben nicht jahrelang an Ihren Fähigkeiten gearbeitet, um Bewerbungen ins Leere zu schicken. Der Deutsch–Marokkanische Berufskongress 2026 bringt Sie in denselben Raum wie die Menschen, die tatsächlich etwas bewegen können — deutsche Arbeitgeber, Anerkennungsexperten und Ausbildungseinrichtungen, am 01. Oktober, nur in Casablanca.",
-  about_p2:"Das ist kein vages Networking-Event. Es ist ein strukturierter, ernsthafter Prozess: echte Gespräche, echte Anforderungen, echte nächste Schritte — organisiert von Karriere Bruecke International, ohne Versprechen, die nicht gehalten werden können.",
-  about_p2_b1:"", about_p2_b2:"", about_p2_b3:"",
-  about_quote:"„Sie bringen die Fähigkeiten mit. Wir bringen den Raum, in dem sie endlich gesehen werden.“",
-  objectives_eyebrow:"Was Sie gewinnen", objectives_title:"Das nehmen Sie mit",
-  obj_1_t:"Wissen Sie genau, wo Sie stehen", obj_1_d:"Präzise Antworten zu Ausbildung, Anerkennung und dem Sprachniveau, das Sie brauchen — kein Rätselraten mehr in Foren.",
-  obj_2_t:"Sprechen Sie mit Entscheidern, nicht mit Türstehern", obj_2_d:"Sitzen Sie den deutschen Organisationen gegenüber, die gerade wirklich einstellen und ausbilden — nicht drei Stellen von einer Vermittlung entfernt.",
-  obj_3_t:"Sehen Sie den echten Ausbildungsweg", obj_3_d:"Marokkanische Institutionen zeigen Ihnen echte Programme, Ausstattung und wie der Ausbildungsalltag wirklich aussieht — keine Broschüre.",
-  obj_4_t:"Werden Sie mehr als ein Name im CV-Stapel", obj_4_d:"Deutsche Arbeitgeber gehen mit einem klaren Bild Ihrer Qualifikationen und Ihres Potenzials — weil Sie es ihnen selbst gezeigt haben.",
-  obj_5_t:"Seien Sie vor falschen Versprechen geschützt", obj_5_d:"Jede Organisation hier folgt transparenten, fairen Rekrutierungsprinzipien. Keine versteckten Kosten, keine falschen Garantien.",
-  obj_6_t:"Gehen Sie mit einem nächsten Schritt, nicht nur einer Visitenkarte", obj_6_d:"Ein dokumentierter Nachverfolgungsplan, damit Ihr Schwung nicht endet, sobald der Kongress vorbei ist.",
-  audiences_eyebrow:"Prüfen Sie sich selbst", audiences_title:"Ist das Ihr Moment?",
-  audiences_banner:"Wenn Sie das hier lesen, ist die Chance groß, dass eine dieser Beschreibungen auf Sie zutrifft.",
-  aud_de_title:"Sie stellen in Deutschland ein",
-  aud_de_1:"Sie leiten HR, Recruiting oder ein Ausbildungsprogramm", aud_de_2:"Sie brauchen qualifizierte Menschen, nicht nur Bewerbungen", aud_de_3:"Sie verantworten Integration und Onboarding", aud_de_4:"Sie arbeiten bei einer Anerkennungs- oder Qualifizierungsstelle", aud_de_5:"Sie vertreten eine Krankenkasse oder soziale Sicherung",
-  aud_ma_title:"Sie bilden die nächste Generation aus",
-  aud_ma_1:"Sie leiten eine Schule, ein Institut oder ein Ausbildungszentrum", aud_ma_2:"Sie vertreten eine Universität oder Hochschule", aud_ma_3:"Sie unterrichten Sprache oder Vorbereitungsprogramme", aud_ma_4:"Sie leiten einen Berufsverband oder Fachverband", aud_ma_5:"Sie arbeiten in Arbeitsvermittlung oder Berufsorientierung",
-  aud_cand_title:"Sie sind bereit für den nächsten Schritt",
-  aud_cand_1:"Sie sind qualifiziert oder frisch ausgebildet und wollen mehr", aud_cand_2:"Sie erwägen eine Ausbildung in Deutschland", aud_cand_3:"Sie sind bereits im Anerkennungsverfahren und brauchen Klarheit", aud_cand_4:"Sie wollen ein echtes Gespräch, kein weiteres Vielleicht",
-  partners_eyebrow:"Referenten & Partner", partners_title:"Mit diesen Menschen sprechen Sie wirklich",
+  marquee_1:"Ausbildungsmöglichkeiten in Deutschland", marquee_2:"Arbeitsmöglichkeiten in Deutschland", marquee_3:"Persönliche Gespräche", marquee_4:"Überprüfung der Unterlagen", marquee_5:"Deutsche Vermittlungsagenturen", marquee_6:"Angenehme Atmosphäre",
+  about_eyebrow:"Warum es das gibt", about_title:"Das ist keine gewöhnliche Messe, das ist Ihre Zukunft",
+  about_float:"Keine versteckten Kosten. Keine falschen Versprechen. Nur ein klarer und transparenter Weg.",
+  about_p1:"Der Deutsch-Marokkanische Berufskongress 2026 gibt Ihnen die Gelegenheit, deutschen Entscheidungsträgern, Experten für Abschlussanerkennung und Ausbildungseinrichtungen persönlich gegenüberzusitzen — <strong>am 01. Oktober in Casablanca.</strong>",
+  about_p2:"Das ist keine gewöhnliche Networking-Veranstaltung, sondern ein konkretes, direktes Treffen, das Ihnen bietet:",
+  about_p2_b1:"Gespräche mit deutschen Arbeitgebern", about_p2_b2:"Vollständige Begleitung zur richtigen Vorbereitung Ihrer Unterlagen", about_p2_b3:"Eine echte Chance auf einen Ausbildungs- oder Arbeitsvertrag, der Ihnen den Weg nach Deutschland öffnet",
+  about_quote:"„Sie haben einen langen Weg des Lernens und Arbeitens zurückgelegt — jetzt ist der Moment gekommen, eine Ausbildungs- oder Arbeitsmöglichkeit in Deutschland zu ergreifen.“",
+  objectives_eyebrow:"Was Sie gewinnen", objectives_title:"Das nehmen Sie vom Deutsch-Marokkanischen Berufskongress mit",
+  obj_1_t:"Wissen Sie genau, wo Sie stehen", obj_1_d:"Antworten auf all Ihre Fragen zu Ihren Unterlagen, zu Leben und Arbeit in Deutschland oder jede andere berufliche Frage — direkt von deutschen Experten.",
+  obj_2_t:"Ein persönliches Gespräch mit den Entscheidungsträgern", obj_2_d:"Sie sitzen direkt den Arbeitgebern gegenüber und präsentieren Ihre Kompetenzen, um einen Ausbildungs- oder Arbeitsvertrag zu erhalten.",
+  obj_3_t:"Den echten Weg der Berufsausbildung in Deutschland kennenlernen", obj_3_d:"Sie erhalten alle nötigen Informationen zur Berufsausbildung in Deutschland, bevor Sie mit der Arbeit beginnen, um Ihre Erfolgschancen zu erhöhen.",
+  obj_4_t:"Vollständige Begleitung zur Vorbereitung Ihrer Unterlagen", obj_4_d:"Sie brauchen nicht nur einen Lebenslauf, sondern eine vollständige Bewerbungsmappe, die die Ausbildungs- und Arbeitsanforderungen in Deutschland erfüllt. Wir helfen Ihnen zu prüfen, ob Ihre Unterlagen vollständig sind.",
+  obj_5_t:"Vor falschen Versprechen geschützt sein", obj_5_d:"Jede Organisation hier folgt transparenten, fairen Rekrutierungsprinzipien. Keine versteckten Kosten, keine falschen Garantien.",
+  obj_6_t:"Mit einem vollständigen Plan nach Hause gehen, nicht nur mit Tipps", obj_6_d:"Am Ende des Kongresses haben Sie einen klaren Plan, was als Nächstes zu tun ist, und die Schritte bis zu Ihrer Ankunft in Deutschland.",
+  audiences_eyebrow:"Prüfen Sie sich selbst", audiences_title:"Ist dieser Deutsch-Marokkanische Berufskongress das Richtige für Sie?",
+  audiences_banner:"Wenn Sie das hier lesen, ist die Chance groß, dass eines dieser Ziele auf Sie zutrifft.",
+  aud_de_title:"Sie interessieren sich für ein Ausbildungsprogramm und möchten:",
+  aud_de_1:"Deutsche Unternehmen direkt treffen", aud_de_2:"Einen Ausbildungs- oder Arbeitsvertrag erhalten", aud_de_3:"Mehr über den Ausbildungsweg erfahren", aud_de_4:"Sicherstellen, dass Ihre Unterlagen vollständig sind", aud_de_5:"",
+  aud_ma_title:"Sie haben Berufserfahrung und möchten:",
+  aud_ma_1:"Deutsche Unternehmen und Arbeitgeber persönlich treffen", aud_ma_2:"Einen Arbeitsvertrag in Deutschland erhalten", aud_ma_3:"Die Einstellungsbedingungen in Deutschland kennenlernen", aud_ma_4:"Sicherstellen, dass Ihre Bewerbungsunterlagen vollständig sind", aud_ma_5:"Antworten auf Ihre offenen Fragen erhalten",
+  aud_cand_title:"Sie sind Student und denken über ein Studium in Deutschland nach, Sie möchten:",
+  aud_cand_1:"Die Studienbedingungen in Deutschland kennenlernen", aud_cand_2:"Gefragte Berufe in Deutschland entdecken", aud_cand_3:"Orientierung von deutschen Vermittlern erhalten", aud_cand_4:"Marokkanische Institute mit Verbindungen zu deutschen Arbeitgebern entdecken",
+  partners_eyebrow:"Referenten & Partner", partners_title:"Wen Sie treffen und mit wem Sie sprechen werden",
   partners_note:"Referentenliste und Partnerstatus vorbehaltlich der endgültigen Bestätigung durch den Veranstalter.",
   partner_karriere_desc:"Kongressveranstalter — koordiniert Teilnehmer, Partner, Referenten und Aussteller.",
   partner_asghar_desc:"Sitz in Hamburg, über 20 Jahre Erfahrung am Arbeitsmarkt, AZAV-zertifizierter Bildungsträger.",
@@ -1288,21 +1309,21 @@ de: {
   partner_sirius_desc:"Unterstützung internationaler Gesundheitsfachkräfte: Chancen, Sprache, Anerkennung und Integration.",
   partner_eemsi_desc:"Marokkanische Partnerschule in Meknès, die die nächste Generation von Gesundheitsfachkräften ausbildet.",
   band_cta:"Platz jetzt sichern",
-  cta1_text:"Sie haben bis hierher gelesen. Der nächste Schritt liegt bei Ihnen.",
-  cta2_text:"Sechs Gründe, dabei zu sein. Nur ein Weg, um anzufangen: anmelden.",
-  cta3_text:"Erkennen Sie sich in einem dieser Profile wieder? Bleiben Sie nicht nur Zuschauer.",
-  cta4_text:"Diese Organisationen sind im Raum. Sie auch?",
-  cta5_text:"Alle Infos sind da. Es fehlt nur noch Ihre Anmeldung.",
+  cta1_text:"Die Anmeldung dauert nur wenige Sekunden. Sichern Sie sich jetzt Ihren Platz.",
+  cta2_text:"Sechs Gründe, dabei zu sein. Nur ein Weg, um anzufangen: melden Sie sich an.",
+  cta3_text:"Erkennen Sie sich in einem dieser Profile wieder? Dann ist dieser Kongress genau richtig für Sie.",
+  cta4_text:"Diese Organisationen werden im Raum sein. Werden Sie auch dabei sein?",
+  cta5_text:"Sie haben jetzt alle Informationen — jetzt müssen Sie sich nur noch anmelden und Ihren Platz sichern",
   nav_pricing:"Preise",
   pricing_eyebrow:"Tickets", pricing_title:"Sichern Sie sich Ihren Platz",
-  pricing_sub:"Jedes Ticket gibt Ihnen vollen Zugang zum Kongresstag. Die einzige Frage ist, wie viel zusätzlichen Zugang Sie wollen — und wie schnell Sie handeln.",
+  pricing_sub:"Jedes Ticket gibt Ihnen vollen Zugang zum Kongresstag. Je früher Sie Ihren Platz buchen, desto weniger zahlen Sie. Der Preis steigt ab September.",
   pricing_urgency:"Plätze sind begrenzt, Bewerbungen werden laufend geprüft.",
   plan_earlybird_badge:"Bester Preis", plan_earlybird_name:"Early Bird", plan_earlybird_deadline:"Buchbar bis 31. August 2026", plan_earlybird_closed:"Anmeldung geschlossen",
   plan_standard_badge:"Empfohlen", plan_standard_name:"Standard", plan_standard_deadline:"Buchbar bis 30. September 2026", plan_standard_notyet:"Öffnet am 1. September 2026",
   plan_premium_badge:"Fachkräfte & Studierende", plan_premium_name:"Premium", plan_premium_deadline:"Für Pflegekräfte, Physiotherapeuten / Auszubildende",
-  plan_premium_note:"Ausschließlich für Pflegepersonal, Physiotherapeuten sowie Schüler, Studierende und Fachkräfte, die in Deutschland arbeiten möchten. Nicht für Arbeitgeber oder offizielle Partner.",
+  plan_premium_note:"",
   feat_congress:"Zugang zum gesamten Kongresstag", feat_networking:"Networking-Sessions", feat_docs:"Konferenzunterlagen", feat_catering:"Kaffeepausen & Mittagessen", feat_certificate:"Teilnahmezertifikat",
-  feat_speeddating_std:"Speed-Dating mit Arbeitgebern nachrangig möglich — nach den Premium-Plätzen, ohne Garantie",
+  feat_speeddating_std:"Speed-Dating-Treffen mit Arbeitgebern (nach Abschluss der Gespräche der Premium-Teilnehmer)",
   feat_speeddating_premium:"Garantierter, bevorzugter Zugang zum Speed-Dating mit Arbeitgebern",
   plan_cta:"Jetzt buchen",
   signup_plan_none:"Noch kein Ticket ausgewählt — wählen Sie unten eins aus",
@@ -1310,7 +1331,7 @@ de: {
   signup_plan_selected:"Gewähltes Ticket",
   form_plan_required_error:"Bitte wählen Sie vor dem Absenden ein Ticket aus.",
   practical_eyebrow:"Gut zu wissen", practical_title:"Praktische Informationen",
-  cta_venue_pre:"Ein professioneller Rahmen, eine herzliche Atmosphäre. Hier findet alles statt.",
+  cta_venue_pre:"Eine komfortable Umgebung und eine herzliche Atmosphäre: Hier treffen wir uns, und von hier aus startet Ihre Zukunft.",
   venue_eyebrow:"Der Veranstaltungsort", venue_title:"New Hotel Casablanca",
   venue_desc:"Der Kongress findet in einem modernen, komfortablen Rahmen statt — ausgestattet für Workshops, Konferenzen und B2B-Gespräche.",
   venue_caption_1:"Praktische Workshops und Live-Demonstrationen",
@@ -1323,7 +1344,7 @@ de: {
   pr_dossier_l:"Bewerbungsunterlagen", pr_dossier_v:"Lebenslauf, Diplome, Zeugnisse und Sprachnachweise, nach Anforderung des Veranstalters",
   pr_price_l:"Teilnahmegebühr", pr_price_v:"Wird Ihnen individuell mitgeteilt, sobald Ihre Bewerbung genehmigt wurde",
   signup_eyebrow:"Anmeldung", signup_title:"Das ist Ihr Zug",
-  signup_sub:"Irgendwo in diesem Raum könnte der Arbeitgeber sitzen, der genau nach Ihrem Profil sucht. Der einzige Weg, es herauszufinden, ist dabei zu sein.",
+  signup_sub:"Deutsche Arbeitgeber suchen vielleicht genau nach Ihrem Profil. Der einzige Weg, das herauszufinden, ist dabei zu sein.",
   signup_reassure:"Die Bewerbung ist kostenlos und dauert eine Minute. Sie zahlen erst, wenn Ihre Bewerbung genehmigt wurde.",
   step1_t:"Angaben einreichen", step1_d:" Name, E-Mail und Telefonnummer — dauert weniger als eine Minute.",
   step2_t:"Wir prüfen Ihre Bewerbung", step2_d:" Unser Team gleicht Ihr Profil mit den Schwerpunkten des Kongresses ab.",
@@ -1345,7 +1366,7 @@ ar: {
   brand:"المؤتمر المهني الألماني المغربي",
   nav_about:"نبذة", nav_partners:"الشركاء", nav_practical:"معلومات عملية", nav_venue:"المكان", nav_cta:"سجّل دابا",
   hero_eyebrow:"التسجيل مفتوح دابا",
-  hero_title:"تعلمتي الألمانية؟ مزيان! دابا جا الوقت <span class=\"hl\">تلقا عقد عمل أو تدريب فألمانيا</span>.",
+  hero_title:"نجحتي فالألمانية؟ مزيان! دابا جا الوقت <span class=\"hl\">تلقا عقد عمل أو تدريب فألمانيا</span>.",
   hero_sub:"فبلاصة ما تبقا تراسل عشرات الشركات الألمانية من أجل عقد عمل، هوما غادي يجيو حتال عندك. المؤتمر المهني الألماني المغربي كيوفر ليك الفرصة تقابل المشغلين الألمان وتحصل على عقد عمل معهم.",
   hero_badge_dates:"01 أكتوبر 2026", hero_badge_location:"الدار البيضاء · نيو هوتيل",
   hero_cta:"احجز المكان ديالك دابا", hero_cta2:"معلومات على المؤتمر",
@@ -1719,8 +1740,10 @@ form.addEventListener("submit", async (e)=>{
   const originalLabel = submitBtn.textContent;
   submitBtn.textContent = i18n[currentLang].form_sending;
 
+  const registrationId = (crypto.randomUUID) ? crypto.randomUUID() : null;
+
   try {
-    const { error } = await sb.from("registrations").insert([{
+    const insertPayload = {
       full_name: fullName,
       email: email,
       phone: phone,
@@ -1729,9 +1752,20 @@ form.addEventListener("submit", async (e)=>{
       plan: selectedPlan,
       plan_price: planMeta[selectedPlan].price,
       status: "pending"
-    }]);
+    };
+    if (registrationId) insertPayload.id = registrationId;
+
+    const { error } = await sb.from("registrations").insert([insertPayload]);
 
     if (error) throw error;
+
+    if (typeof fbq !== "undefined"){
+      fbq('track', 'Lead', {
+        content_name: selectedPlan,
+        value: planMeta[selectedPlan].price,
+        currency: 'EUR'
+      }, registrationId ? { eventID: registrationId } : undefined);
+    }
 
     setMsg(i18n[currentLang].form_success, "success");
     form.reset();
