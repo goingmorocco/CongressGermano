@@ -632,23 +632,34 @@
 
   :focus-visible{outline:3px solid var(--blue-500); outline-offset:2px;}
 </style>
-<!-- Meta Pixel Code -->
+<!-- Meta CAPI identifiers (no pixel loaded — these feed the server-side Conversions API only) -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1015814088117647');
-fbq('track', 'PageView');
+(function(){
+  function getCookie(name){
+    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  function setCookie(name, value, days){
+    var d = new Date();
+    d.setTime(d.getTime() + days*24*60*60*1000);
+    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
+  }
+  var now = Date.now();
+
+  // _fbc: captures which ad click drove the visit, from the fbclid URL param
+  var params = new URLSearchParams(window.location.search);
+  var fbclid = params.get("fbclid");
+  if (fbclid){
+    setCookie("_fbc", "fb.1." + now + "." + fbclid, 90);
+  }
+
+  // _fbp: a first-party browser/session identifier Meta uses for matching
+  if (!getCookie("_fbp")){
+    var rand = Math.floor(Math.random() * 2147483647);
+    setCookie("_fbp", "fb.1." + now + "." + rand, 90);
+  }
+})();
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1015814088117647&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body dir="rtl">
 
@@ -1736,6 +1747,11 @@ form.addEventListener("submit", async (e)=>{
 
   const registrationId = (crypto.randomUUID) ? crypto.randomUUID() : null;
 
+  function getCookie(name){
+    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
   try {
     const insertPayload = {
       full_name: fullName,
@@ -1745,21 +1761,16 @@ form.addEventListener("submit", async (e)=>{
       language: currentLang,
       plan: selectedPlan,
       plan_price: planMeta[selectedPlan].price,
-      status: "pending"
+      status: "pending",
+      fbc: getCookie("_fbc") || null,
+      fbp: getCookie("_fbp") || null,
+      user_agent: navigator.userAgent || null
     };
     if (registrationId) insertPayload.id = registrationId;
 
     const { error } = await sb.from("registrations").insert([insertPayload]);
 
     if (error) throw error;
-
-    if (typeof fbq !== "undefined"){
-      fbq('track', 'Lead', {
-        content_name: selectedPlan,
-        value: planMeta[selectedPlan].price,
-        currency: 'EUR'
-      }, registrationId ? { eventID: registrationId } : undefined);
-    }
 
     setMsg(i18n[currentLang].form_success, "success");
     form.reset();
