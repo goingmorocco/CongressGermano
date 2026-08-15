@@ -561,11 +561,11 @@
 
   form{display:flex; flex-direction:column; gap:16px;}
   label{font-size:13px; font-weight:700; color:var(--blue-900); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; display:block;}
-  input[type=text], input[type=email], input[type=tel]{
+  input[type=text], input[type=email], input[type=tel], select{
     width:100%; border:1.5px solid var(--line); border-radius:12px; padding:13px 16px; font-size:15px;
-    font-family:inherit; color:var(--ink); transition:border-color .15s;
+    font-family:inherit; color:var(--ink); transition:border-color .15s; background:#fff;
   }
-  input:focus{outline:none; border-color:var(--blue-500);}
+  input:focus, select:focus{outline:none; border-color:var(--blue-500);}
   .field{display:flex; flex-direction:column;}
   .consent{display:flex; align-items:flex-start; gap:10px; font-size:13px; color:var(--gray);}
   .consent input{margin-top:3px; accent-color:var(--blue-900);}
@@ -632,34 +632,23 @@
 
   :focus-visible{outline:3px solid var(--blue-500); outline-offset:2px;}
 </style>
-<!-- Meta CAPI identifiers (no pixel loaded — these feed the server-side Conversions API only) -->
+<!-- Meta Pixel Code -->
 <script>
-(function(){
-  function getCookie(name){
-    var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return m ? decodeURIComponent(m[1]) : null;
-  }
-  function setCookie(name, value, days){
-    var d = new Date();
-    d.setTime(d.getTime() + days*24*60*60*1000);
-    document.cookie = name + "=" + encodeURIComponent(value) + "; expires=" + d.toUTCString() + "; path=/; SameSite=Lax";
-  }
-  var now = Date.now();
-
-  // _fbc: captures which ad click drove the visit, from the fbclid URL param
-  var params = new URLSearchParams(window.location.search);
-  var fbclid = params.get("fbclid");
-  if (fbclid){
-    setCookie("_fbc", "fb.1." + now + "." + fbclid, 90);
-  }
-
-  // _fbp: a first-party browser/session identifier Meta uses for matching
-  if (!getCookie("_fbp")){
-    var rand = Math.floor(Math.random() * 2147483647);
-    setCookie("_fbp", "fb.1." + now + "." + rand, 90);
-  }
-})();
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1015814088117647');
+fbq('track', 'PageView');
 </script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1015814088117647&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body dir="rtl">
 
@@ -1040,6 +1029,19 @@
           <label for="city" data-i18n="form_city">City</label>
           <input type="text" id="city" name="city" required autocomplete="address-level2">
         </div>
+        <div class="field">
+          <label for="germanLevel" data-i18n="form_german_level">Your level in German</label>
+          <select id="germanLevel" name="germanLevel" required>
+            <option value="" data-i18n="form_german_level_placeholder">Select your level</option>
+            <option value="A1">A1</option>
+            <option value="A2">A2</option>
+            <option value="B1">B1</option>
+            <option value="B2">B2</option>
+            <option value="C1">C1</option>
+            <option value="C2">C2</option>
+            <option value="none" data-i18n="form_german_level_none">I don't know yet</option>
+          </select>
+        </div>
         <label class="consent">
           <input type="checkbox" id="consent" required>
           <span data-i18n="form_consent">I agree that my details will be stored and used by Karriere Bruecke International to process my application for this congress.</span>
@@ -1258,6 +1260,7 @@ fr: {
   step2_t:"Nous examinons votre candidature", step2_d:" Notre équipe vérifie votre profil par rapport aux axes du congrès.",
   step3_t:"Nous vous contactons", step3_d:" Une fois approuvée, nous vous contactons pour confirmer votre place et organiser le paiement.",
   form_name:"Nom complet", form_email:"Adresse e-mail", form_phone:"Numéro de téléphone", form_city:"Ville",
+  form_german_level:"Votre niveau d'allemand", form_german_level_placeholder:"Sélectionnez votre niveau", form_german_level_none:"Je ne sais pas encore",
   form_consent:"J'accepte que mes informations soient conservées et utilisées par Karriere Bruecke International pour traiter ma candidature à ce congrès.",
   form_submit:"Envoyer la candidature",
   form_sending:"Envoi en cours…",
@@ -1355,6 +1358,7 @@ de: {
   step2_t:"Wir prüfen Ihre Bewerbung", step2_d:" Unser Team gleicht Ihr Profil mit den Schwerpunkten des Kongresses ab.",
   step3_t:"Wir kontaktieren Sie", step3_d:" Nach Genehmigung melden wir uns, um Ihren Platz und die Zahlung zu klären.",
   form_name:"Vollständiger Name", form_email:"E-Mail-Adresse", form_phone:"Telefonnummer", form_city:"Stadt",
+  form_german_level:"Ihr Deutschniveau", form_german_level_placeholder:"Wählen Sie Ihr Niveau", form_german_level_none:"Weiß ich noch nicht",
   form_consent:"Ich stimme zu, dass meine Angaben von Karriere Bruecke International gespeichert und zur Bearbeitung meiner Bewerbung für diesen Kongress verwendet werden.",
   form_submit:"Bewerbung senden",
   form_sending:"Wird gesendet…",
@@ -1452,6 +1456,7 @@ ar: {
   step2_t:"كنفحصو طلبك", step2_d:" الفريق ديالنا كيقارن الملف ديالك مع محاور المؤتمر.",
   step3_t:"كنتواصلو معاك", step3_d:" من بعد الموافقة، غانتواصلو معاك باش نأكدو المكان والأداء.",
   form_name:"الاسم الكامل", form_email:"البريد الإلكتروني", form_phone:"رقم الهاتف", form_city:"المدينة",
+  form_german_level:"مستواك في اللغة الألمانية", form_german_level_placeholder:"اختر مستواك", form_german_level_none:"ما زال ما عرفتش",
   form_consent:"كنوافق على أن المعلومات ديالي غادي تتخزن وتستعمل من طرف Karriere Bruecke International باش تتعالج طلب المشاركة ديالي فهاد المؤتمر.",
   form_submit:"صيفط الطلب",
   form_sending:"كيتصيفط…",
@@ -1723,6 +1728,7 @@ form.addEventListener("submit", async (e)=>{
   const email = document.getElementById("email").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const city = document.getElementById("city").value.trim();
+  const germanLevel = document.getElementById("germanLevel").value.trim();
 
   if (!selectedPlan){
     document.getElementById("planError").classList.add("show");
@@ -1731,7 +1737,7 @@ form.addEventListener("submit", async (e)=>{
   }
   document.getElementById("planError").classList.remove("show");
 
-  if (!fullName || !email || !phone || !city){
+  if (!fullName || !email || !phone || !city || !germanLevel){
     setMsg(i18n[currentLang].form_error, "error");
     return;
   }
@@ -1747,30 +1753,31 @@ form.addEventListener("submit", async (e)=>{
 
   const registrationId = (crypto.randomUUID) ? crypto.randomUUID() : null;
 
-  function getCookie(name){
-    const m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-    return m ? decodeURIComponent(m[1]) : null;
-  }
-
   try {
     const insertPayload = {
       full_name: fullName,
       email: email,
       phone: phone,
       city: city,
+      german_level: germanLevel,
       language: currentLang,
       plan: selectedPlan,
       plan_price: planMeta[selectedPlan].price,
-      status: "pending",
-      fbc: getCookie("_fbc") || null,
-      fbp: getCookie("_fbp") || null,
-      user_agent: navigator.userAgent || null
+      status: "pending"
     };
     if (registrationId) insertPayload.id = registrationId;
 
     const { error } = await sb.from("registrations").insert([insertPayload]);
 
     if (error) throw error;
+
+    if (typeof fbq !== "undefined"){
+      fbq('track', 'Lead', {
+        content_name: selectedPlan,
+        value: planMeta[selectedPlan].price,
+        currency: 'EUR'
+      }, registrationId ? { eventID: registrationId } : undefined);
+    }
 
     setMsg(i18n[currentLang].form_success, "success");
     form.reset();
