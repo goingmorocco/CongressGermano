@@ -311,7 +311,8 @@ function getFilteredRows(){
       (r.full_name || "").toLowerCase().includes(q) ||
       (r.email || "").toLowerCase().includes(q) ||
       (r.phone || "").toLowerCase().includes(q) ||
-      (r.city || "").toLowerCase().includes(q)
+      (r.city || "").toLowerCase().includes(q) ||
+      (r.german_level || "").toLowerCase().includes(q)
     );
   }
   return rows;
@@ -345,6 +346,7 @@ function render(){
           <div><div class="d-label">E-mail</div><div class="d-value"><a href="mailto:${escapeAttr(r.email)}">${escapeHtml(r.email || "—")}</a></div></div>
           <div><div class="d-label">Téléphone</div><div class="d-value"><a href="tel:${escapeAttr(r.phone)}">${escapeHtml(r.phone || "—")}</a></div></div>
           <div><div class="d-label">Ville</div><div class="d-value">${escapeHtml(r.city || "—")}</div></div>
+          <div><div class="d-label">Niveau d'allemand</div><div class="d-value">${escapeHtml(r.german_level || "—")}</div></div>
           <div><div class="d-label">Formule</div><div class="d-value">${escapeHtml(planLabel)}</div></div>
           <div><div class="d-label">Langue</div><div class="d-value">${escapeHtml((r.language || "—").toUpperCase())}</div></div>
         </div>
@@ -408,7 +410,7 @@ function exportToCsv(){
   }
 
   const statusLabels = { pending:"En attente", approved:"Approuvée", rejected:"Refusée" };
-  const headers = ["Nom complet","E-mail","Téléphone","Ville","Formule","Prix (€)","Langue","Statut","Date de réception"];
+  const headers = ["Nom complet","E-mail","Téléphone","Ville","Niveau d'allemand","Formule","Prix (€)","Langue","Statut","Date de réception"];
 
   const lines = [headers.map(csvEscape).join(",")];
   rows.forEach(r => {
@@ -419,6 +421,7 @@ function exportToCsv(){
       r.email || "",
       r.phone || "",
       r.city || "",
+      r.german_level || "",
       plan,
       r.plan_price ?? "",
       (r.language || "").toUpperCase(),
